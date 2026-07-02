@@ -15,7 +15,7 @@
   };
 
   # Локаль
-  time.timeZone = "Asia/Anadyr";
+  time.timeZone = "Europe/Moscow";
   i18n = {
     defaultLocale = "ru_RU.UTF-8";
     extraLocaleSettings.LC_TIME = "en_US.UTF-8";

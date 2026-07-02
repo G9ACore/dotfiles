@@ -2,7 +2,7 @@
 {
   imports = [ ./hardware.nix ];
 
-  networking.hostName = "nixos-vm";
+  networking.hostName = "vm";
 
   # VM-специфика
   virtualisation.virtualbox.guest.enable = true;

@@ -7,7 +7,6 @@
     swayidle        # Автоблокировка
     wl-clipboard    # Буфер обмена
     cliphist        # История буфера обмена
-    grimblast       # Скриншоты
     mako            # Уведомления
     playerctl       # Управление медиа
     brightnessctl   # Яркость

@@ -25,8 +25,8 @@
       lt  = "eza --tree --icons";
       cat = "bat";
       cd  = "z";    # zoxide
-      rebuild = "sudo nixos-rebuild switch --flake ~/dotfiles#laptop";
-      hm  = "home-manager switch --flake ~/dotfiles#main@laptop";
+      rebuild = "sudo nixos-rebuild switch --flake ~/dotfiles#(hostname)";
+      hm  = "home-manager switch --flake ~/dotfiles#main@(hostname)";
       v   = "nvim";
     };
   };

@@ -4,6 +4,8 @@
     inputs.noctalia.packages.${pkgs.system}.default
   ];
 
+  home-manager.sharedModules = [ inputs.noctalia.homeModules.default ];
+
   programs.noctalia-shell = {
     enable = true;
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   # Базовые пользовательские пакеты
   home.packages = with pkgs; [
