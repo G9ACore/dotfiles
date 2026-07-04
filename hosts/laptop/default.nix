@@ -1,14 +1,12 @@
 { config, pkgs, inputs, ... }:
 {
-  imports = [ ./hardware.nix ];
-
-  networking.hostName = "nixlaptop";
-
   # Хост-специфичные модули
   imports = [
     ./hardware.nix
     ../../modules/nixos/gaming.nix  # На VM не нужен
   ];
+
+  networking.hostname = "laptop";
 
   # Специфика ноутбука
   services.tlp.enable = true;       # Управление питанием
