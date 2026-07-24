@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware.nix
-    ../modules/nixos/core.nix
+    ../../modules/nixos/core.nix
   ];
 
   networking.hostname = "laptop";
