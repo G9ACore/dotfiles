@@ -1,9 +1,8 @@
 { config, pkgs, inputs, ... }:
 {
-  # Хост-специфичные модули
   imports = [
     ./hardware.nix
-    ../../modules/nixos/gaming.nix  # На VM не нужен
+    ../modules/nixos/core.nix
   ];
 
   networking.hostname = "laptop";
