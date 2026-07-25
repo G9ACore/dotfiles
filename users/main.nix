@@ -13,7 +13,7 @@
 
   home = {
     username = lib.mkForce "dmitry";
-    homeDirectory = "/home/dmitry";
+    homeDirectory = lib.mkForce "/home/dmitry";
     stateVersion = "25.05";
   };
 }
