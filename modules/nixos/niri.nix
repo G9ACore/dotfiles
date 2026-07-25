@@ -32,7 +32,6 @@
 
   # Программы с setuid/capabilities
   programs = {
-    brightnessctl.enable = true;
     dconf.enable = true;   # Нужен для GTK настроек
   };
 }
