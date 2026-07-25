@@ -5,5 +5,5 @@
     isNormalUser = "true";
   };
 
-  users.group.main = {};
+  users.groups.main = {};
 }
