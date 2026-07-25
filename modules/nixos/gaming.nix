@@ -22,6 +22,6 @@
     # bottles         # Wine-контейнеры
     mangohud        # Оверлей FPS/температур
     protonup-qt     # Обновление Proton GE
-    glxinfo         # диагностика OpenGL
+    mesa-demos         # диагностика OpenGL
   ];
 }
