@@ -32,7 +32,7 @@
 
   # Программы с setuid/capabilities
   programs = {
-    light.enable = true;   # Яркость без sudo
+    brightnessctl.enable = true;
     dconf.enable = true;   # Нужен для GTK настроек
   };
 }

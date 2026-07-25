@@ -8,6 +8,7 @@
     ../../modules/nixos/niri.nix
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/fonts.nix
+    ../../modules/nixos/users.nix
   ];
 
   networking.hostName = "laptop";
