@@ -10,7 +10,7 @@
     ../../modules/nixos/fonts.nix
   ];
 
-  networking.hostname = "laptop";
+  networking.hostName = "laptop";
 
   # Специфика ноутбука
   # TODO: Вынести bluetooth в отдельный файл
