@@ -2,7 +2,7 @@
 {
   users.users.main = {
     group = "main";
-    isNormalUser = "true";
+    isNormalUser = true;
   };
 
   users.groups.main = {};
