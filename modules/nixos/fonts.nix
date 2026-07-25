@@ -1,4 +1,4 @@
-{ ... }: 
+{ pkgs, ... }: 
 {
   fonts = {
     enableDefaultPackages = true;
