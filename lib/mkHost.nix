@@ -16,7 +16,7 @@ inputs.nixpkgs.lib.nixosSystem {
         useGlobalPkgs = true;
         useUserPackages = true;
         extraSpecialArgs = { inherit inputs; };
-        users = lib.genAttrs users (user: import ./users/${user}.nix);
+        users = lib.genAttrs users (user: import ../users/${user}.nix);
       };
     }
   ];
