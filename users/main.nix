@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   #imports = [
   #  ../modules/home/core.nix
@@ -12,7 +12,7 @@
   #];
 
   home = {
-    username = "dmitry";
+    username = lib.mkForce "dmitry";
     homeDirectory = "/home/dmitry";
     stateVersion = "25.05";
   };
