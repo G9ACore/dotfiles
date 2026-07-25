@@ -5,7 +5,6 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
-    gamescopeSession.enable = true;  # Gamescope для лучшей совместимости
   };
 
   # GameMode — оптимизирует CPU/GPU во время игры
@@ -18,9 +17,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    lutris          # Запуск игр не из Steam
-    heroic          # Epic Games / GOG
-    bottles         # Wine-контейнеры
+    # lutris          # Запуск игр не из Steam
+    # heroic          # Epic Games / GOG
+    # bottles         # Wine-контейнеры
     mangohud        # Оверлей FPS/температур
     protonup-qt     # Обновление Proton GE
     glxinfo         # диагностика OpenGL

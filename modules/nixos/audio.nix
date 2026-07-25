@@ -7,7 +7,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;  # Нужно для Wine/Steam
     pulse.enable = true;
-    jack.enable = true;        # Для аудиоработы если нужно
+    wireplumber.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

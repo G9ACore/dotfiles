@@ -4,7 +4,7 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 ];  # SSH если нужен
+      allowedTCPPorts = [ ];  
     };
   };
 

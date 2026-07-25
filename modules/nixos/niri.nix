@@ -2,10 +2,7 @@
 {
   imports = [ inputs.niri-flake.nixosModules.niri ];
 
-  programs.niri = {
-    enable = true;
-    package = inputs.niri-flake.packages.${pkgs.system}.niri-unstable;
-  };
+  programs.niri.enable = true; 
 
   # Дисплейный менеджер
   services.greetd = {
@@ -21,10 +18,7 @@
   # XDG порталы — нужны для скриншотов, скринкаста, file picker
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.common.default = "*";
   };
 
@@ -35,24 +29,7 @@
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
-  };
-
-  # Шрифты системные
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.noto
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      inter
-    ];
-    fontconfig.defaultFonts = {
-      monospace = [ "JetBrainsMono Nerd Font Mono" ];
-      sansSerif = [ "Inter" ];
-      emoji = [ "Noto Color Emoji" ];
-    };
+    XDG_CURRENT_DESKTOP = "niri";
   };
 
   # Программы с setuid/capabilities
