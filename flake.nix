@@ -19,7 +19,7 @@
     nixosConfigurations = {
       laptop = mkHost {
         hostname = "laptop";
-        users = [ "main" ];
+        users = [ "dmitry" ];
       };
     };
   };
