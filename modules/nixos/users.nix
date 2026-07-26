@@ -8,4 +8,5 @@
     };
     mutableUsers = false;
     groups.main = {};
+  };
 }
