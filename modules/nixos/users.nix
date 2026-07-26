@@ -1,7 +1,7 @@
 { ... }:
 {
   users = {
-    users.main = {
+    users.dmitry = {
       group = "main";
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ];
