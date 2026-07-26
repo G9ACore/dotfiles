@@ -1,9 +1,11 @@
 { ... }:
 {
-  users.users.main = {
-    group = "main";
-    isNormalUser = true;
-  };
-
-  users.groups.main = {};
+  users = {
+    users.main = {
+      group = "main";
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+    };
+    mutableUsers = false;
+    groups.main = {};
 }
