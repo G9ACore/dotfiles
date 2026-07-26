@@ -4,7 +4,7 @@
     users.main = {
       group = "main";
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" ];
     };
     mutableUsers = false;
     groups.main = {};
