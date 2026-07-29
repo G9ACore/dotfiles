@@ -2,13 +2,7 @@
 {
   imports = [
     ./hardware.nix
-    ../../modules/nixos/core.nix
-    ../../modules/nixos/audio.nix
-    ../../modules/nixos/network.nix
-    ../../modules/nixos/niri.nix
-    ../../modules/nixos/gaming.nix
-    ../../modules/nixos/fonts.nix
-    ../../modules/nixos/users.nix
+    ../../modules/nixos/default.nix
   ];
 
   networking.hostName = "laptop";
