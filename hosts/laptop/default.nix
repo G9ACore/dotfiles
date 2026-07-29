@@ -3,9 +3,13 @@
   imports = [
     ./hardware.nix
     ../../modules/nixos/default.nix
+
+    # Host-specific modules
+    ../../modules/nixos/gaming.nix
+    ../../modules/nixos/niri.nix
   ];
 
-  networking.hostName = "laptop";
+  networking.hostName = "G9ACore";
 
   # Специфика ноутбука
   # TODO: Вынести bluetooth в отдельный файл
