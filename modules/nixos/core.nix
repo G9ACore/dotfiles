@@ -34,12 +34,6 @@
     };
   };
 
-  # Консольный шрифт
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "ru";
-  };
-
   # Базовые системные пакеты
   environment.systemPackages = with pkgs; [
     git
