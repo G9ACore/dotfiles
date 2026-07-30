@@ -7,6 +7,8 @@
     # Host-specific modules
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/niri.nix
+    ../../modules/nixos/vpn.nix
+    ../../modules/nixos/kdeconnect.nix
   ];
 
   networking.hostName = "G9ACore";

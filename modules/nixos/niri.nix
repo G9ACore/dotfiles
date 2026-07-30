@@ -5,12 +5,12 @@
   # Дисплейный менеджер
   services.greetd = {
     enable = true;
-    settings.default_session.command = ''
-      ${pkgs.tuigreet}/bin/tuigreet \
-        --time \
-        --greeting "Добро пожаловать" \
-        --cmd niri-session
-    '';
+    settings = {
+      default_session = {
+        command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.niri}/bin/niri --session";
+        user = "dmitry";
+      };
+    };
   };
 
   # XDG порталы — нужны для скриншотов, скринкаста, file picker

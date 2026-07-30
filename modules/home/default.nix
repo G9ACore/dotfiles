@@ -10,5 +10,6 @@
     ./gaming.nix
     ./minecraft.nix
     ./xdg.nix
+    ./waybar.nix
   ];
 }
