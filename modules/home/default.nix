@@ -11,5 +11,7 @@
     ./minecraft.nix
     ./xdg.nix
     ./waybar.nix
+    ./wayland.nix
+    ./wallpaper.nix
   ];
 }

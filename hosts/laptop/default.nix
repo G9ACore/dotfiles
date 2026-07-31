@@ -7,6 +7,7 @@
     # Host-specific modules
     ../../modules/nixos/gaming.nix
     ../../modules/nixos/niri.nix
+    ../../modules/nixos/stylix.nix
     ../../modules/nixos/vpn.nix
     ../../modules/nixos/kdeconnect.nix
   ];

@@ -47,8 +47,14 @@
     usbutils   # lsusb
   ];
 
-  # Разрешить не-свободные пакеты (нужно для Steam, драйверов)
   nixpkgs.config.allowUnfree = true;
+  # Разрешить не-свободные пакеты (нужно для Steam, драйверов)
+  # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (builtins.parseDrvName pkg.name).name [
+  #   "discord"
+  #   "steam"
+  #   "obsidian"
+     # драйвера
+  # ];
 
   # Загрузчик
   boot.loader = {

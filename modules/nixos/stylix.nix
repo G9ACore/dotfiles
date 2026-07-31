@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
+
   stylix = {
     enable = true;
     image = ../../assets/wallpaper.jpg;
@@ -34,13 +38,12 @@
     };
 
     # Что красить автоматически
-    targets = {
-      kitty.enable = true;
-      fish.enable = true;
-      mako.enable = true;
-      starship.enable = true;
-      gtk.enable = true;
-      noctalia-shell.enable = true;
-    };
+    # targets = {
+    #   kitty.enable = true;
+    #   fish.enable = true;
+    #   mako.enable = true;
+    #   starship.enable = true;
+    #   gtk.enable = true;
+    # };
   };
 }
