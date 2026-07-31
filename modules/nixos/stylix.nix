@@ -7,7 +7,7 @@
   stylix = {
     enable = true;
     image = ../../assets/wallpaper.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     polarity = "dark";
 
     fonts = {
@@ -32,8 +32,8 @@
     };
 
     cursor = {
-      package = pkgs.catppuccin-cursors.mochaBlue;
-      name = "catppuccin-mocha-blue-cursors";
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
       size = 24;
     };
 
