@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 {
   programs.niri.enable = true; 
 
@@ -7,11 +7,13 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.niri}/bin/niri --session";
+        command = "${config.programs.niri.package}/bin/niri-session";
         user = "dmitry";
       };
     };
   };
+
+  systemd.user.services.niri.enableDefaultPath = false;
 
   # XDG порталы — нужны для скриншотов, скринкаста, file picker
   xdg.portal = {

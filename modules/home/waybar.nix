@@ -1,12 +1,15 @@
 { pkgs, config, ... }:
 {
-  home.packages = [
-    pkgs.waybar
-  ];
+  # home.packages = [
+  #   pkgs.waybar
+  # ];
   
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      target = "graphical-session.target";
+    };
   };
 
   home.file.".config/waybar/config.jsonc" = {

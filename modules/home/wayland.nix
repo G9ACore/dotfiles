@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  # TODO: Раскидать все приложения по категориям: системные, под NiRi
+
   home.packages = with pkgs; [
     # Screenshots
     grim
@@ -32,5 +34,16 @@
 
     # Notifications
     mako
+
+    # Bluetooth
+    blueman
+
+    # Music
+    playerctl
+
+    # Switch power profiles
+    power-profiles-daemon
+
+    waybar
   ];
 }
