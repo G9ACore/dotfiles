@@ -13,9 +13,14 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, agenix, ... }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;

@@ -10,6 +10,9 @@
     ../../modules/nixos/stylix.nix
     ../../modules/nixos/vpn.nix
     ../../modules/nixos/kdeconnect.nix
+    ../../modules/nixos/security.nix
+
+    ../../secrets/secrets.nix
   ];
 
   networking.hostName = "G9ACore";

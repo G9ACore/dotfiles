@@ -9,8 +9,9 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     ../hosts/${hostname}/default.nix
 
-    # Home Manager встроен в систему
+    # The inputs below are integrated into the system
     inputs.home-manager.nixosModules.home-manager
+    inputs.agenix.nixosModules.default
     {
       home-manager = {
         useGlobalPkgs = true;

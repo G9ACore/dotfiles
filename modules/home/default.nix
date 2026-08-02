@@ -13,5 +13,6 @@
     ./waybar.nix
     ./wayland.nix
     ./wallpaper.nix
+    ./yazi.nix
   ];
 }

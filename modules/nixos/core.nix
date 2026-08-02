@@ -36,7 +36,6 @@
 
   # Базовые системные пакеты
   environment.systemPackages = with pkgs; [
-    git
     wget
     curl
     htop
