@@ -14,5 +14,6 @@
     ./wayland.nix
     ./wallpaper.nix
     ./yazi.nix
+    ./obsidian.nix
   ];
 }
