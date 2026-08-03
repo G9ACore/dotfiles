@@ -3,6 +3,7 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
+    configPath = ".mozilla/firefox";
   };
 
   xdg.mimeApps = {
@@ -13,4 +14,6 @@
       "x-scheme-handler/https" = "firefox.desktop";
     };
   };
+
+  stylix.targets.firefox.profileNames = [ "default" ];
 }

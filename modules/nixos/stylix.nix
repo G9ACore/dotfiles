@@ -37,13 +37,10 @@
       size = 24;
     };
 
-    # Что красить автоматически
-    # targets = {
-    #   kitty.enable = true;
-    #   fish.enable = true;
-    #   mako.enable = true;
-    #   starship.enable = true;
-    #   gtk.enable = true;
-    # };
+    # What color automatically
+    targets = {
+      fish.enable = true;
+      gtk.enable = true;
+    };
   };
 }
