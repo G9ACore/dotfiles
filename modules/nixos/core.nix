@@ -56,8 +56,16 @@
   # ];
 
   # Загрузчик
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    # Disables kernel log messages on the console
+    kernelParams = [ "quiet" "systemd.show_status=false" "rd.systemd.show_status=false" "rd.udev.log_level-3" ];
+    
+    # Hides systemd status messages during boot execution
+    consoleLogLevel = 0;
+    initrd.verbose = false;
   };
 }

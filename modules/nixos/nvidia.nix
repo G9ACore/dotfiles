@@ -1,33 +1,21 @@
 { config, lib, ... }:
 {
-  options.modules.nvidia.enable = lib.mkEnableOption "nvidia";
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false; # Set to true if you prefer the open-source kernel module
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-  config = lib.mkIf config.modules.nvidia.enable {
-    hardware = {
-      graphics.enable = true;
-
-      nvidia = {
-        modesetting.enable = true;
-        open = false;
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
-        nvidiaSettings = false;
+    # Enable PRIME Offload
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true; # This provides the 'nvidia-offload' utility
       };
-    };
-
-    environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "nvidia";
-      GBM_BACKEND = "nvidia-drm";
-      "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
-    };
-
-    services.xserver.videoDrivers = [ "nvidia" ];
-
-    # with nvidia it's forbidden to sleep
-    systemd.targets = {
-      sleep.enable = false;
-      suspend.enable = false;
-      hibernate.enable = false;
-      hybrid-sleep.enable = false;
+    
+      # Run 'lspci | grep -E "VGA|3D"' to find your exact Bus IDs
+      intelBusId = "PCI:00:02.0";   # Replace with your Intel Integrated GPU Bus ID
+      nvidiaBusId = "PCI:01:00.0";  # Replace with your Nvidia Dedicated GPU Bus ID
     };
   };
 }

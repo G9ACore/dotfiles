@@ -7,6 +7,7 @@
       inter
       noto-fonts
       noto-fonts-color-emoji
+      font-awesome
     ];
     fontconfig.defaultFonts = {
       monospace = [ "JetBrainsMono Nerd Font Mono" ];

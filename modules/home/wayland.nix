@@ -12,6 +12,8 @@
 
     # Wayland utilities
     wl-clipboard
+    wl-clip-persist
+    cliphist
     wlr-randr
 
     # Wallpaper
@@ -43,7 +45,5 @@
 
     # Switch power profiles
     power-profiles-daemon
-
-    waybar
   ];
 }
