@@ -14,6 +14,5 @@
     ./wayland.nix
     ./wallpaper.nix
     ./yazi.nix
-    ./fonts.nix
   ];
 }

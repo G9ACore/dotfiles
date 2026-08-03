@@ -5,5 +5,6 @@
     ./audio.nix
     ./network.nix
     ./users.nix
+    ./fonts.nix
   ];
 }
