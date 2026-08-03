@@ -11,6 +11,7 @@
     ../../modules/nixos/vpn.nix
     ../../modules/nixos/kdeconnect.nix
     ../../modules/nixos/security.nix
+    ../../modules/nixos/nvidia.nix
 
     ../../secrets/secrets.nix
   ];

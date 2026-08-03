@@ -2,13 +2,16 @@
 {
   programs.yazi = {
     enable = true;
-    settings.yazi = {
-      opener.edit = [
-        {
-          run = "nvim \"$@\"";
-          block = true;
-        }
-      ];
+    settings = {
+      opener = {
+        edit = [
+          {
+            block = true;
+            run = "nvim \"$@\"";
+          }
+        ];
+      };
     };
   };
+  # xdg.configFile."yazi/yazi.toml".source = ./config/yazi/yazi.toml;
 }

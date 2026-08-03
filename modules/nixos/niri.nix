@@ -31,9 +31,4 @@
     CLUTTER_BACKEND = "wayland";
     XDG_CURRENT_DESKTOP = "niri";
   };
-
-  # Программы с setuid/capabilities
-  programs = {
-    dconf.enable = true;   # Нужен для GTK настроек
-  };
 }
