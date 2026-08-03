@@ -1,0 +1,21 @@
+system: "base16"
+name: "matugen-dark-blue"
+author: "derived from binnewbs/arch-hyprland matugen palette"
+
+palette:
+  base00: "121318" # surface — основной фон
+  base01: "1a1b20" # surface_container_low — фон панелей чуть светлее
+  base02: "282a2f" # surface_container_high — selection background
+  base03: "8f9099" # outline — комментарии/неактивное
+  base04: "c5c6d0" # on_surface_variant — приглушённый текст
+  base05: "e2e2e9" # on_surface — основной текст
+  base06: "d9e2ff" # primary_fixed — светлый акцент
+  base07: "33353a" # surface_container_highest — самый светлый "фон" в теме
+  base08: "ffb4ab" # error — красный
+  base09: "e0bbde" # tertiary — розово-сиреневый (вместо оранжевого — палитра монохромная)
+  base0A: "c0c6dc" # secondary — приглушённый "жёлтый" слот
+  base0B: "b0c6ff" # primary — синий как "зелёный/success" слот
+  base0C: "475d91" # inverse_primary — приглушённый циан
+  base0D: "d9e2ff" # primary_fixed — главный акцент (синий)
+  base0E: "593d5a" # tertiary_container — фиолетовый
+  base0F: "fdd7fa" # on_tertiary_container — доп. акцент

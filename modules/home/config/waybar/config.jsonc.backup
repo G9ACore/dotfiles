@@ -1,0 +1,93 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "margin-top": 12,
+    "margin-left": 18,
+    "margin-right": 18,
+
+    "spacing": 6,
+
+    "modules-left": [
+        "custom/nixos",
+        "niri/workspaces"
+    ],
+
+    "modules-center": [
+        "niri/window"
+    ],
+
+    "modules-right": [
+        "network",
+        "backlight",
+        "battery",
+        "pulseaudio",
+        "clock",
+        "tray"
+    ],
+
+    "custom/nixos": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "fuzzel"
+    },
+
+    "clock": {
+        "format": "󰥔  {:%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month"
+        }
+    },
+
+    "network": {
+      "format-wifi": "󰖩",
+      "format-ethernet": "󰈀",
+      "format-disconnected": "󰖪",
+
+      "tooltip-format": "{essid}\n{signalStrength}%"
+    },
+    
+
+    "backlight": {
+        "format": "󰃟"
+    },
+
+    "battery": {
+      "states": {
+        "warning": 40,
+        "critical": 15
+      },
+
+      "format": "{icon} {capacity}%",
+
+      "format-icons": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+
+      "format-full": "",
+      "format-charging": "󰂄",
+      "tooltip": true
+    },
+
+    "pulseaudio": {
+        "format": "󰕾  {volume}%",
+        "format-muted": "󰝟",
+        "on-click": "pavucontrol"
+    },
+
+    "tray": {
+	"icon-size": 16,
+        "spacing": 6
+    }
+}

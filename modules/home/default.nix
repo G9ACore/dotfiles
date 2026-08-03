@@ -15,5 +15,6 @@
     ./wallpaper.nix
     ./yazi.nix
     ./obsidian.nix
+    ./gtk.nix
   ];
 }

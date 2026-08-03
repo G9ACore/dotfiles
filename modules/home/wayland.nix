@@ -9,6 +9,7 @@
 
     # Display lock
     swaylock
+    swayidle
 
     # Wayland utilities
     wl-clipboard
@@ -25,25 +26,16 @@
     # File manager
     yazi
 
-    # Audio
-    pavucontrol
-
     # Network
     networkmanagerapplet
 
     # Brightness
     brightnessctl
 
-    # Notifications
-    mako
-
     # Bluetooth
     blueman
 
     # Music
     playerctl
-
-    # Switch power profiles
-    power-profiles-daemon
   ];
 }

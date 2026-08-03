@@ -1,3 +1,62 @@
-[ window ]
+# ~/.config/alacritty/alacritty.toml
+# Тема подогнана под ту же Matugen-палитру, что и waybar (colors.css)
+
+[window]
+opacity = 0.92
+padding = { x = 12, y = 10 }
+decorations = "none"
 dynamic_padding = true
-decorations = "None"
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Propo"
+style = "Bold"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Propo"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Propo"
+style = "Bold Italic"
+
+[colors.primary]
+background = "#121318"  # surface
+foreground = "#e2e2e9"  # on_surface
+
+[colors.cursor]
+text = "#121318"        # surface
+cursor = "#b0c6ff"       # primary
+
+[colors.selection]
+text = "#e2e2e9"         # on_surface
+background = "#404659"   # secondary_container
+
+[colors.normal]
+black   = "#121318"      # surface
+red     = "#ffb4ab"      # error
+green   = "#b0c6ff"      # primary (палитра монохромная, "зелёный" слот занят синим)
+yellow  = "#c0c6dc"      # secondary
+blue    = "#475d91"      # inverse_primary
+magenta = "#e0bbde"      # tertiary
+cyan    = "#a6c8ff"      # производный светло-синий (между primary и primary_fixed)
+white   = "#c5c6d0"      # on_surface_variant
+
+[colors.bright]
+black   = "#44464f"      # surface_variant
+red     = "#ffdad6"      # on_error_container
+green   = "#d9e2ff"      # primary_fixed
+yellow  = "#dce2f9"      # secondary_fixed
+blue    = "#b0c6ff"      # primary_fixed_dim
+magenta = "#fdd7fa"      # on_tertiary_container
+cyan    = "#c9d5f9"      # source_color
+white   = "#e2e2e9"      # inverse_surface
+
+[colors.tabs]
+active   = "#b0c6ff"
+inactive = "#8f9099"
+
+[general]
+live_config_reload = true

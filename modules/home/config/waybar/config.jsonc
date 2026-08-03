@@ -1,22 +1,183 @@
 {
-	"layer": "top",
-	"position": "top",
-	"height": 32,
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 3,
+    "margin-top": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+    "fixed-center": true,
+    "reload_style_on_change": true,
 
-	"modules-left": [
-		"niri/workspaces"
-	],
+    "modules-left": [
+        "clock",
+        "custom/separator#blank",
+        "tray"
+    ],
 
-	"modules-center": [
-		"clock"
-	],
+    "modules-center": [
+        "niri/workspaces"
+    ],
 
-	"modules-right": [
-		"network",
-		"pulseaudio",
-		"battery",
-		"cpu",
-		"memory",
-		"tray"
-	]
+    "modules-right": [
+        "custom/swaync",
+        "battery",
+        "custom/separator#blank",
+        "group/audio",
+        "custom/separator#blank",
+        "niri/window",
+        "custom/separator#blank",
+        "custom/power"
+    ],
+
+    "clock": {
+        "interval": 1,
+        "format": " {:%I:%M %p}",
+        "format-alt": " {:%H:%M   %Y, %d %B, %A}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            "active": "",
+            "default": ""
+        }
+    },
+
+    "niri/window": {
+        "format": "{}",
+        "max-length": 55,
+        "separate-outputs": true
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 4
+    },
+
+    "battery": {
+        "align": 0,
+        "rotate": 0,
+        "full-at": 100,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "󱘖 {capacity}%",
+        "format-full": "{icon} Full",
+        "format-icons": [
+            "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+        ],
+        "format-time": "{H}h {M}min",
+        "tooltip": true,
+        "tooltip-format": "{timeTo} {power}w",
+        "on-click": "wlogout"
+    },
+
+    "group/audio": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "pulseaudio",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio#microphone"
+        ]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} 󰂰 {volume}%",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", "󰕾", ""]
+        },
+        "scroll-step": 5,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol -t 3",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "tooltip-format": "{icon} {desc} | {volume}%",
+        "smooth-scrolling-threshold": 1
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click-right": "pavucontrol -t 4",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-",
+        "tooltip-format": "{source_desc} | {source_volume}%",
+        "scroll-step": 5
+    },
+
+    "custom/swaync": {
+        "tooltip": true,
+        "tooltip-format": "Left Click: Notification center\nRight Click: Do not disturb",
+        "format": "{icon} {}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": true,
+        "tooltip-format": "Logout menu"
+    },
+
+    "custom/separator#blank": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    }
 }
