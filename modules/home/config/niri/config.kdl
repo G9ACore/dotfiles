@@ -207,6 +207,9 @@ layout {
 
 // This line starts swaybg
 spawn-at-startup "swaybg" "-i" "/home/dmitry/.config/wallpaper.jpg" "-m" "fill"
+spawn-at-startup "xwayland-satellite"
+
+// For work clipboard
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "wl-clip-persist" "--clipboard" "both"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:

@@ -66,5 +66,7 @@
     # Hides systemd status messages during boot execution
     consoleLogLevel = 0;
     initrd.verbose = false;
+
+    supportedFilesystems = [ "ext4" "exfat" ];
   };
 }

@@ -7,6 +7,8 @@
     dedicatedServer.openFirewall = false;
   };
 
+  programs.xwayland.enable = true;
+
   # GameMode — оптимизирует CPU/GPU во время игры
   programs.gamemode.enable = true;
 
@@ -19,9 +21,10 @@
   environment.systemPackages = with pkgs; [
     # lutris          # Запуск игр не из Steam
     # heroic          # Epic Games / GOG
-    # bottles         # Wine-контейнеры
+    bottles         # Wine-контейнеры
     mangohud        # Оверлей FPS/температур
     protonup-qt     # Обновление Proton GE
     mesa-demos         # диагностика OpenGL
+    xwayland-satellite
   ];
 }
