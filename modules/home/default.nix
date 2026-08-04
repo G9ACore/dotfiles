@@ -18,6 +18,7 @@
     ./gtk.nix
     ./launcher.nix
     ./wlogout.nix
+    ./swaync.nix
     ./hide-desktop-entries.nix
   ];
 }

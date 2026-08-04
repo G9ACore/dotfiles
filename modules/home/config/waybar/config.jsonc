@@ -8,20 +8,17 @@
     "margin-right": 8,
     "fixed-center": true,
     "reload_style_on_change": true,
-
     "modules-left": [
         "clock",
         "custom/separator#blank",
         "tray"
     ],
-
     "modules-center": [
         "niri/workspaces"
     ],
-
     "modules-right": [
         "custom/swaync",
-        "battery",
+        "custom/battery",
         "custom/separator#blank",
         "group/audio",
         "custom/separator#blank",
@@ -29,7 +26,6 @@
         "custom/separator#blank",
         "custom/power"
     ],
-
     "clock": {
         "interval": 1,
         "format": " {:%I:%M %p}",
@@ -49,7 +45,6 @@
             }
         }
     },
-
     "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -67,18 +62,15 @@
             "default": ""
         }
     },
-
     "niri/window": {
         "format": "{}",
         "max-length": 55,
         "separate-outputs": true
     },
-
     "tray": {
         "icon-size": 20,
         "spacing": 4
     },
-
     "battery": {
         "align": 0,
         "rotate": 0,
@@ -93,14 +85,29 @@
         "format-plugged": "󱘖 {capacity}%",
         "format-full": "{icon} Full",
         "format-icons": [
-            "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
         ],
         "format-time": "{H}h {M}min",
         "tooltip": true,
         "tooltip-format": "{timeTo} {power}w",
         "on-click": "wlogout"
     },
-
+    "custom/battery": {
+        "exec": "~/.config/waybar/scripts/battery-status.sh",
+        "return-type": "json",
+        "interval": 30,
+        "on-click": "wlogout"
+    },
     "group/audio": {
         "orientation": "inherit",
         "drawer": {
@@ -113,7 +120,6 @@
             "pulseaudio#microphone"
         ]
     },
-
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} 󰂰 {volume}%",
@@ -125,7 +131,12 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", "󰕾", ""]
+            "default": [
+                "",
+                "",
+                "󰕾",
+                ""
+            ]
         },
         "scroll-step": 5,
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -135,7 +146,6 @@
         "tooltip-format": "{icon} {desc} | {volume}%",
         "smooth-scrolling-threshold": 1
     },
-
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
@@ -147,7 +157,6 @@
         "tooltip-format": "{source_desc} | {source_volume}%",
         "scroll-step": 5
     },
-
     "custom/swaync": {
         "tooltip": true,
         "tooltip-format": "Left Click: Notification center\nRight Click: Do not disturb",
@@ -167,14 +176,12 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },
-
     "custom/power": {
         "format": "⏻",
         "on-click": "wlogout",
         "tooltip": true,
         "tooltip-format": "Logout menu"
     },
-
     "custom/separator#blank": {
         "format": "",
         "interval": "once",

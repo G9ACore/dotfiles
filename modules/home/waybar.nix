@@ -3,13 +3,20 @@ let
   css = ./config/waybar/css;
 in
 {
-  home.packages = with pkgs; [
-    waybar
-    swaynotificationcenter
-    pavucontrol
-    wireplumber
-    nerd-fonts.jetbrains-mono
-  ];
+  home = {
+    packages = with pkgs; [
+      waybar
+      swaynotificationcenter
+      pavucontrol
+      wireplumber
+      nerd-fonts.jetbrains-mono
+    ];
+
+    file.".config/waybar/scripts/battery-status.sh" = {
+      source = ./config/waybar/scripts/battery-status.sh;
+      executable = true;
+    };
+  };
 
   programs.waybar = {
     enable = true;

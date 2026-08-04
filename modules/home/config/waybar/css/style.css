@@ -110,3 +110,10 @@ tooltip label {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
+
+/* скрываем модуль батареи полностью, когда скрипт возвращает class=hidden */
+#custom-battery.hidden {
+    padding: 0px;
+    margin: 0px;
+    min-width: 0px;
+}
