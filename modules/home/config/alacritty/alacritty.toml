@@ -54,9 +54,5 @@ magenta = "#fdd7fa"      # on_tertiary_container
 cyan    = "#c9d5f9"      # source_color
 white   = "#e2e2e9"      # inverse_surface
 
-[colors.tabs]
-active   = "#b0c6ff"
-inactive = "#8f9099"
-
 [general]
 live_config_reload = true

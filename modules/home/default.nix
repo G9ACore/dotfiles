@@ -16,5 +16,8 @@
     ./yazi.nix
     ./obsidian.nix
     ./gtk.nix
+    ./launcher.nix
+    ./wlogout.nix
+    ./hide-desktop-entries.nix
   ];
 }

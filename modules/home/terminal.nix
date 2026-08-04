@@ -5,6 +5,6 @@
     enable = true;
   };
 
-  xdg.configFile."alacritty/alacritty.yml".source =
-    lib.mkForce ./config/alacritty/alacritty.yml;
+  xdg.configFile."alacritty/alacritty.toml".source =
+    lib.mkForce ./config/alacritty/alacritty.toml;
 }

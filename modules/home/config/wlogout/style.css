@@ -1,0 +1,49 @@
+/* ~/.config/wlogout/style.css */
+@define-color background #121318;
+@define-color surface_container #1e1f25;
+@define-color surface_container_high #282a2f;
+@define-color on_surface #e2e2e9;
+@define-color on_surface_variant #c5c6d0;
+@define-color primary #b0c6ff;
+@define-color primary_container #2e4578;
+@define-color error #ffb4ab;
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-weight: bold;
+    font-size: 16px;
+}
+
+window {
+    background-color: rgba(18, 19, 24, 0.75);
+}
+
+button {
+    color: @on_surface;
+    background-color: @surface_container;
+    border: 2px solid transparent;
+    border-radius: 24px;
+    margin: 14px;
+    padding: 0 28px;
+    min-width: 160px;
+    min-height: 64px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0px;   /* глушим стандартные png-иконки wlogout, у нас текст+glyph */
+    transition: all 0.2s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: @primary_container;
+    color: @primary;
+    border-color: @primary;
+}
+
+#lock:hover     { border-color: @primary; }
+#logout:hover   { border-color: @on_surface_variant; }
+#suspend:hover  { border-color: @primary; }
+#hibernate:hover{ border-color: @on_surface_variant; }
+#reboot:hover   { border-color: @primary; }
+#shutdown:hover { border-color: @error; color: @error; }

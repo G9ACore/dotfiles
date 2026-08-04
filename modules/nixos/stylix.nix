@@ -43,7 +43,7 @@
 
     cursor = {
       package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ink";
+      name = "Bibata-Modern-Classic";
       size = 24;
     };
 
@@ -63,9 +63,10 @@
       # Остальное можно смело отдать под автотему Stylix:
       gtk.enable = true;
       qt.enable = true;
-      # fuzzel.enable = true;
+      # fuzzel.enable = false; # стилизуем вручную, см. fuzzel.ini
       # swaylock.enable = true;
       # swaync.enable = true; # у Stylix есть отдельный таргет под swaync
+      # wlogout.enable = false; # стилизуем вручную, см. wlogout/style.css
     };
   };
 }

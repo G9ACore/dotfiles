@@ -6,7 +6,6 @@ in
   home.packages = with pkgs; [
     waybar
     swaynotificationcenter
-    wlogout
     pavucontrol
     wireplumber
     nerd-fonts.jetbrains-mono

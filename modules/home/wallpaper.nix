@@ -1,5 +1,5 @@
 { ... }:
 {
   home.file.".config/wallpaper.jpg".source = 
-    ../../assets/wallpaper.jpg;
+    ../../assets/wallpapers/wallpaper.jpg;
 }
