@@ -10,10 +10,16 @@ in
       pavucontrol
       wireplumber
       nerd-fonts.jetbrains-mono
+      jq
     ];
 
     file.".config/waybar/scripts/battery-status.sh" = {
       source = ./config/waybar/scripts/battery-status.sh;
+      executable = true;
+    };
+
+    file.".config/waybar/scripts/language.sh" = {
+      source = ./config/waybar/scripts/language.sh;
       executable = true;
     };
   };

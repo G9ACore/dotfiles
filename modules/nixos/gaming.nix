@@ -9,8 +9,18 @@
 
   programs.xwayland.enable = true;
 
-  # GameMode — оптимизирует CPU/GPU во время игры
-  programs.gamemode.enable = true;
+  # Включение игрового режима Feral GameMode
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true; # Позволяет менять приоритет процесса Java
+    settings = {
+      general = {
+        softrealtime = "auto";
+        renice = 10;
+      };
+    };
+  };
+
 
   # 32-битные библиотеки для Wine, Minecraft и старых игр
   hardware.graphics = {

@@ -2,7 +2,6 @@
 {
   imports = [
     ./core.nix     
-    ./shell.nix
     ./git.nix
     ./terminal.nix
     ./browser.nix

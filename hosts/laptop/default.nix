@@ -12,6 +12,7 @@
     ../../modules/nixos/kdeconnect.nix
     ../../modules/nixos/security.nix
     ../../modules/nixos/nvidia.nix
+    ../../modules/nixos/shell.nix
 
     ../../secrets/secrets.nix
   ];

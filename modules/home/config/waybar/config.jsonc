@@ -11,6 +11,8 @@
     "modules-left": [
         "clock",
         "custom/separator#blank",
+        "custom/language",
+        "custom/separator#blank",
         "tray"
     ],
     "modules-center": [
@@ -186,5 +188,11 @@
         "format": "",
         "interval": "once",
         "tooltip": false
+    },
+    "custom/language": {
+        "exec": "~/.config/waybar/scripts/language.sh",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "niri msg action switch-layout next"
     }
 }

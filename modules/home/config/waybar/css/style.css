@@ -1,6 +1,6 @@
 /* Adapted from binnewbs/arch-hyprland (bintang default.css) for Niri */
 * {
-    font-family: "JetBrainsMono Nerd Font Propo";
+    font-family: "JetBrainsMono Nerd Font Mono";
     font-weight: bold;
     min-height: 0;
     font-size: 98%;
@@ -83,7 +83,9 @@ tooltip label {
 #window,
 #workspaces,
 #custom-power,
-#custom-swaync {
+#custom-swaync,
+#custom-battery,
+#custom-language {
     padding-top: 4px;
     padding-bottom: 4px;
     padding-right: 6px;

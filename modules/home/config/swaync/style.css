@@ -1,49 +1,60 @@
 /* ~/.config/swaync/style.css */
 
 * {
-    font-family: "JetBrainsMono Nerd Font Propo";
+    font-family: "JetBrainsMono Nerd Font Mono";
     font-weight: bold;
+}
+
+.floating-notifications.background,
+.control-center {
+    background: transparent;
 }
 
 .notification-row {
     outline: none;
     margin: 8px;
+    padding: 0px;
 }
 
-.notification {
+/* реальная "рисующая" обёртка — раньше стилизовалась не она */
+.notification-row .notification-background {
     background: #1e1f25;
     border: 1px solid #44464f;
     border-radius: 20px;
     padding: 4px;
-    color: #e2e2e9;
+}
+
+.notification-row .notification-background .notification.critical {
+    border: 1px solid #ffb4ab;
 }
 
 .notification-content {
     background: transparent;
     padding: 8px;
+    color: #e2e2e9;
 }
 
-.notification .body {
-    color: #c5c6d0;
-}
-
-.notification .summary {
+.notification-content .summary {
     color: #e2e2e9;
     font-weight: bold;
 }
 
-.notification.critical {
-    border: 1px solid #ffb4ab;
+.notification-content .body {
+    color: #c5c6d0;
 }
 
-.notification-action-box button {
+.notification-content .time {
+    color: #8f9099;
+}
+
+.notification-action {
     background: #282a2f;
     color: #e2e2e9;
     border-radius: 12px;
     margin: 4px;
 }
 
-.notification-action-box button:hover {
+.notification-action:hover {
     background: #2e4578;
     color: #d9e2ff;
 }
@@ -53,6 +64,7 @@
     color: #e2e2e9;
     border-radius: 999px;
     padding: 2px;
+    margin: 6px;
 }
 
 .close-button:hover {
@@ -60,6 +72,7 @@
     color: #121318;
 }
 
+/* ---- control center ---- */
 .control-center {
     background: rgba(18, 19, 24, 0.92);
     border-radius: 20px;
@@ -68,6 +81,10 @@
 
 .control-center-list {
     background: transparent;
+}
+
+.control-center-list-placeholder {
+    color: #8f9099;
 }
 
 .widget-title {
@@ -82,10 +99,16 @@
     border-radius: 12px;
 }
 
+.widget-title button:hover {
+    background: #2e4578;
+    color: #d9e2ff;
+}
+
 .widget-dnd {
     background: #1e1f25;
     border-radius: 16px;
     padding: 6px;
+    color: #e2e2e9;
 }
 
 .widget-dnd > switch {
