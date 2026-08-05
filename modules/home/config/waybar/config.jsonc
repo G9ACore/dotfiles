@@ -162,7 +162,7 @@
     "custom/swaync": {
         "tooltip": true,
         "tooltip-format": "Left Click: Notification center\nRight Click: Do not disturb",
-        "format": "{icon} {}",
+        "format": "{icon} {text}",
         "format-icons": {
             "notification": "<span foreground='red'><sup></sup></span>",
             "none": "",

@@ -13,7 +13,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 14d";
+      options = "--delete-older-than 7d";
     };
   };
 
@@ -67,7 +67,7 @@
     kernelParams = [ "quiet" "systemd.show_status=false" "rd.systemd.show_status=false" "rd.udev.log_level=3" ];
     
     # Hides systemd status messages during boot execution
-    consoleLogLevel = 0;
+    consoleLogLevel = 3;
     initrd.verbose = false;
 
     supportedFilesystems = [ "ext4" "exfat" ];

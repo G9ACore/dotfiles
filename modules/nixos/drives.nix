@@ -3,8 +3,7 @@
     device = "/dev/disk/by-uuid/20A1-C9BC";
     fsType = "exfat";
     options = [
-      "rw"
-      "uid=1000" "gid=100" "fmask=000" "dmask=000"
+      "rw" "uid=1000" "gid=100" "fmask=000" "dmask=00"
       "nofail"
       "noauto"
       "x-systemd.automount"        # монтировать при первом обращении к папке

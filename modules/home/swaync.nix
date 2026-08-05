@@ -16,9 +16,4 @@
     };
     Install = { WantedBy = [ "graphical-session.target" ]; };
   };
-
-  # после каждого home-manager switch перечитываем конфиг/CSS
-  home.activation.swayncReload = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    $DRY_RUN_CMD ${pkgs.swaynotificationcenter}/bin/swaync-client --reload-config 2>/dev/null || true
-  '';
 }
