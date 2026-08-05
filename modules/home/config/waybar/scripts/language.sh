@@ -1,16 +1,21 @@
 #!/usr/bin/env bash
-# ~/.config/waybar/scripts/language.sh
-# Показывает текущую раскладку клавиатуры niri.
+# Мгновенный индикатор раскладки niri (без поллинга)
 
-data=$(niri msg -j keyboard-layouts)
-idx=$(echo "$data" | jq -r '.current_idx')
-name=$(echo "$data" | jq -r ".names[$idx]")
+print_layout() {
+  local data idx name short
+  data=$(niri msg -j keyboard-layouts 2>/dev/null) || exit 1
+  idx=$(jq -r '.current_idx // 0' <<<"$data")
+  name=$(jq -r ".names[$idx] // \"\"" <<<"$data")
+  case "$name" in
+    *Russian*|*RU*) short="RU" ;;
+    *English*|*US*) short="EN" ;;
+    *) short="$name" ;;
+  esac
+  printf '{"text":"%s","tooltip":"%s"}\n' "$short" "$name"
+}
 
-# Короткие подписи вместо длинных названий
-case "$name" in
-  *Russian*|*RU*) short="RU" ;;
-  *English*|*US*) short="EN" ;;
-  *) short="$name" ;;
-esac
+print_layout   # начальное состояние
 
-echo "{\"text\":\"$short\", \"tooltip\":\"$name\"}"
+niri msg --json event-stream 2>/dev/null \
+  | grep -E --line-buffered '"KeyboardLayout(Switched|sChanged)"' \
+  | while read -r _; do print_layout; done

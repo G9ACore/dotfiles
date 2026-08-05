@@ -52,21 +52,5 @@
       popups = 0.92;
       desktop = 1.0;
     };
-
-    # ВАЖНО: waybar и alacritty стилизованы вручную (см. предыдущий waybar.nix
-    # и alacritty.toml ниже) — отключаем автогенерацию Stylix для них,
-    # иначе он перезапишет наш style.css / colors.css при пересборке.
-    targets = {
-      # waybar.enable = false;
-      # alacritty.enable = false;
-      # fuzzel.enable = false;
-      # wlogout.enable = false;
-
-      # Остальное можно смело отдать под автотему Stylix:
-      gtk.enable = true;
-      qt.enable = true;
-      # swaylock.enable = true;
-      # swaync.enable = true;
-    };
   };
 }

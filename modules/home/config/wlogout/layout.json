@@ -1,38 +1,36 @@
-[
-  {
-    "label": "lock",
-    "action": "swaylock",
-    "text": "󰌾  Заблокировать",
-    "keybind": "l"
-  },
-  {
-    "label": "logout",
-    "action": "niri msg action quit --skip-confirmation",
-    "text": "󰗼  Выйти из сессии",
-    "keybind": "e"
-  },
-  {
-    "label": "suspend",
-    "action": "systemctl suspend",
-    "text": "󰤄  Сон",
-    "keybind": "s"
-  },
-  {
-    "label": "hibernate",
-    "action": "systemctl hibernate",
-    "text": "󰆧  Гибернация",
-    "keybind": "h"
-  },
-  {
-    "label": "reboot",
-    "action": "systemctl reboot",
-    "text": "󰜉  Перезагрузка",
-    "keybind": "r"
-  },
-  {
-    "label": "shutdown",
-    "action": "systemctl poweroff",
-    "text": "⏻  Выключение",
-    "keybind": "p"
-  }
-]
+{
+  "label": "lock",
+  "action": "swaylock",
+  "text": "󰌾  Заблокировать",
+  "keybind": "l"
+}
+{
+  "label": "logout",
+  "action": "niri msg action quit --skip-confirmation",
+  "text": "󰗼  Выйти из сессии",
+  "keybind": "e"
+}
+{
+  "label": "suspend",
+  "action": "systemctl suspend",
+  "text": "󰤄  Сон",
+  "keybind": "s"
+}
+{
+  "label": "hibernate",
+  "action": "systemctl hibernate",
+  "text": "󰆧  Гибернация",
+  "keybind": "h"
+}
+{
+  "label": "reboot",
+  "action": "systemctl reboot",
+  "text": "󰜉  Перезагрузка",
+  "keybind": "r"
+}
+{
+  "label": "shutdown",
+  "action": "systemctl poweroff",
+  "text": "⏻  Выключение",
+  "keybind": "p"
+}
