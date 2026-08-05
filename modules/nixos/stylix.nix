@@ -34,10 +34,10 @@
         name = "Inter";
       };
       sizes = {
-        applications = 12;
+        applications = 11;
         terminal = 12;
-        desktop = 12;
-        popups = 12;
+        desktop = 10;
+        popups = 10;
       };
     };
 
@@ -59,14 +59,14 @@
     targets = {
       # waybar.enable = false;
       # alacritty.enable = false;
+      # fuzzel.enable = false;
+      # wlogout.enable = false;
 
       # Остальное можно смело отдать под автотему Stylix:
       gtk.enable = true;
       qt.enable = true;
-      # fuzzel.enable = false; # стилизуем вручную, см. fuzzel.ini
       # swaylock.enable = true;
-      # swaync.enable = true; # у Stylix есть отдельный таргет под swaync
-      # wlogout.enable = false; # стилизуем вручную, см. wlogout/style.css
+      # swaync.enable = true;
     };
   };
 }
