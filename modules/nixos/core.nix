@@ -72,4 +72,10 @@
 
     supportedFilesystems = [ "ext4" "exfat" ];
   };
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50; # Выделит виртуальный своп размером в половину вашей ОЗУ
+  };
 }
