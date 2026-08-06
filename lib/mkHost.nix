@@ -19,6 +19,11 @@ inputs.nixpkgs.lib.nixosSystem {
         extraSpecialArgs = { inherit inputs; };
         users = lib.genAttrs users (user: import ../users/${user}.nix);
       };
+
+      # TODO: Move obsidian overlay, because mkHost uni for all users
+      nixpkgs.overlays = [
+        inputs.obsidian-extensions.overlays.default
+      ];
     }
   ];
 }
