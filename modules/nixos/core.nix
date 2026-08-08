@@ -38,7 +38,7 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
-    htop
+    btop
     file
     unzip
     neovim
@@ -70,7 +70,7 @@
     consoleLogLevel = 3;
     initrd.verbose = false;
 
-    supportedFilesystems = [ "ext4" "exfat" ];
+    supportedFilesystems = [ "ext4" "exfat" "ntfs" ];
   };
 
   zramSwap = {

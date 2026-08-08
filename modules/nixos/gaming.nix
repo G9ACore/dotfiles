@@ -5,6 +5,8 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
+
+    extest.enable = true;
   };
 
   programs.xwayland.enable = true;

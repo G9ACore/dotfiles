@@ -3,7 +3,22 @@
   programs.obsidian = {
     enable = true;
 
-    vaults.notes.target = "docs/Obsidian";
+    vaults.notes = {
+      target = "docs/notes";
+
+      settings = {
+        app.legacyChat = false;
+	appearance = {
+	  baseFontSize = 16;
+          accentColor = "#A1B2C3";
+
+	  interfaceFontFamily = "Inter";
+	  textFontFamily = "JetBrainsMono Nerd Font";
+	  monospaceFontFamily = "JetBrainsMono Nerd Font";
+        };
+      };
+    };
+
 
     defaultSettings = {
       app = {
@@ -13,19 +28,12 @@
 
       communityPlugins = with pkgs.obsidianPlugins; [
         dataview
+        vim-yank-highlight
       ];
 
       themes = with pkgs.obsidianThemes; [
         minimal
       ];
     };
-  };
-
-  home.file."Obsidian/.obsidian/snippets/custom-font-size.css" = {
-    text = ''
-      body {
-        --font-text-size: 16px;
-      }
-    '';
   };
 }

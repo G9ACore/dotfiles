@@ -4,7 +4,7 @@
 
   programs.starship = {
     enable = true;
-    settings = lib.importTOML ../home/config/starship/starship.toml;
+    settings = builtins.fromTOML (builtins.readFile ../home/config/starship/starship.toml);
   };
 
   # home.sessionVariables = {

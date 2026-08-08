@@ -162,21 +162,20 @@
     "custom/swaync": {
         "tooltip": true,
         "tooltip-format": "Left Click: Notification center\nRight Click: Do not disturb",
-        "format": "{icon} {text}",
+        "format": "{icon}",
         "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
+            "notification": "󰂚",
+            "dnd-notification": "",
+            "inhibited-notification": "󰂚",
             "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
             "dnd-none": "",
-            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
             "inhibited-none": ""
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "sleep 0.1 && swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw"
     },
     "custom/power": {
         "format": "⏻",
