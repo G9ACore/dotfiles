@@ -1,34 +1,32 @@
-# ~/.config/starship.toml
 # Палитра — та же, что в waybar/colors.css
+add_newline = false
+command_timeout = 1000
 
 format = """
-[](fg:#2e4578)\
-[  $directory](bg:#2e4578 fg:#e2e2e9)\
-[](fg:#2e4578 bg:#404659)\
-[$git_branch$git_status](bg:#404659 fg:#c0c6dc)\
-[](fg:#404659)
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
 $character"""
 
 [directory]
-style = "bg:#2e4578 fg:#e2e2e9"
 truncation_length = 4
 truncate_to_repo = true
 truncation_symbol = "…/"
+format = "[](fg:#2e4578)[ $path ](bg:#2e4578 fg:#e2e2e9 bold)[](fg:#2e4578) "
 
 [git_branch]
 symbol = " "
-style = "bg:#404659 fg:#c0c6dc"
-format = "[ $symbol$branch ]($style)"
+format = "[](fg:#404659)[ $symbol$branch ](bg:#404659 fg:#c0c6dc)[](fg:#404659) "
 
 [git_status]
-style = "bg:#404659 fg:#ffb4ab"
-format = "[$all_status$ahead_behind ]($style)"
+format = "[](fg:#404659)[ $all_status$ahead_behind ](bg:#404659 fg:#ffb4ab)[](fg:#404659) "
+
+[cmd_duration]
+min_time = 2000
+format = "[](fg:#282a2f)[  $duration ](bg:#282a2f fg:#8f9099)[](fg:#282a2f) "
 
 [character]
 success_symbol = "[❯](bold #b0c6ff)"
 error_symbol = "[❯](bold #ffb4ab)"
 vicmd_symbol = "[❮](bold #e0bbde)"
-
-[cmd_duration]
-min_time = 2000
-format = "[  took $duration ](fg:#8f9099)"

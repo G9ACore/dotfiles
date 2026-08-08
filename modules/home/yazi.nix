@@ -13,5 +13,7 @@
         ];
       };
     };
+
+    keymap = builtins.fromTOML (builtins.readFile ./config/yazi/keymap.toml);
   };
 }
