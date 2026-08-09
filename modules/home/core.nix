@@ -10,6 +10,7 @@
     fastfetch
     p7zip
     unrar
+    zip
   ];
 
   programs.home-manager.enable = true;
