@@ -581,8 +581,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Print { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
+    Ctrl+Print { spawn "sh" "-c" "grim - | swappy -f -"; }
+    // оставил стандартный niri-пикер окна для быстрого сохранения без редактора
     Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may

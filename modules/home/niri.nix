@@ -1,10 +1,7 @@
-{ config, ... }:
+{ ... }:
 {
-  #xdg.configFile."niri/config.kdl".source =
-  #  ./config/niri/config.kdl;
-
-  home.file.".config/niri/config.kdl" = {
-    source = ./config/niri/config.kdl; # Путь к файлу относительно текущего .nix файла
-    force = true; # Принудительно перезаписывать файл при конфликтах
+  xdg.configFile."niri/config.kdl" = {
+    source = ./config/niri/config.kdl;
+    force = true; # на случай, если где-то остался не-Nix-managed файл
   };
 }

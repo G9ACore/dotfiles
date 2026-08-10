@@ -11,6 +11,7 @@
     p7zip
     unrar
     zip
+    lsof
   ];
 
   programs.home-manager.enable = true;

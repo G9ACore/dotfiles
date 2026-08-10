@@ -12,6 +12,7 @@
     ./waybar.nix
     ./wayland.nix
     ./wallpaper.nix
+    ./prompt.nix
     ./yazi.nix
     ./obsidian.nix
     ./gtk.nix

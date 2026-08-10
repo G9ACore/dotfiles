@@ -2,10 +2,10 @@
 {
   # TODO: Раскидать все приложения по категориям: системные, под NiRi
 
-  home.packages = with pkgs; [
-    # Screenshots
+  home.packages = with pkgs; [    # Screenshots
     grim
     slurp
+    swappy
 
     # Display lock
     swaylock
@@ -38,4 +38,6 @@
     # Music
     playerctl
   ];
+
+  xdg.configFile."swappy/config".source = ./config/swappy/config;
 }

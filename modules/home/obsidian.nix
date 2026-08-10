@@ -10,11 +10,11 @@
         app.legacyChat = false;
 	appearance = {
 	  baseFontSize = 16;
-          accentColor = "#A1B2C3";
+          accentColor = "#b0c6ff";
 
 	  interfaceFontFamily = "Inter";
-	  textFontFamily = "JetBrainsMono Nerd Font";
-	  monospaceFontFamily = "JetBrainsMono Nerd Font";
+	  textFontFamily = "JetBrainsMono Nerd Font Mono";
+	  monospaceFontFamily = "JetBrainsMono Nerd Font Mono";
         };
       };
     };
