@@ -33,8 +33,10 @@
     # Bluetooth
     blueman
 
-    # Music
+    # Audio
     playerctl
+    helvum
+    pavucontrol
 
     # Trash utilite
     trash-cli
