@@ -1,9 +1,10 @@
 {
   pkgs,
   lib,
+  settings,
   ...
 }: {
-  # Nix настройки
+  # Nix settings
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -20,8 +21,8 @@
     };
   };
 
-  # Локаль
-  time.timeZone = "Europe/Moscow";
+  # Locale
+  time.timeZone = settings.timeZone;
   i18n = {
     defaultLocale = "ru_RU.UTF-8";
     extraLocaleSettings = {
@@ -37,7 +38,7 @@
     };
   };
 
-  # Базовые системные пакеты
+  # Base system packages
   environment.systemPackages = with pkgs; [
     wget
     curl
@@ -49,7 +50,7 @@
     usbutils # lsusb
   ];
 
-  # Разрешить не-свободные пакеты (нужно для Steam, драйверов)
+  # Allow unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
@@ -61,25 +62,24 @@
       "nvidia-kernel-modules"
     ];
 
-  # Загрузчик
+  # Bootloader
   boot = {
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # Disables kernel log messages on the console
     kernelParams = ["quiet" "systemd.show_status=false" "rd.systemd.show_status=false" "rd.udev.log_level=3"];
 
-    # Hides systemd status messages during boot execution
     consoleLogLevel = 3;
     initrd.verbose = false;
 
     supportedFilesystems = ["ext4" "exfat" "ntfs"];
   };
 
+  # Swap for more "RAM"
   zramSwap = {
     enable = true;
     algorithm = "zstd";
-    memoryPercent = 50; # Выделит виртуальный своп размером в половину вашей ОЗУ
+    memoryPercent = 50;
   };
 }

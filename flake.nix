@@ -34,9 +34,15 @@
     ...
   }: let
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+
     lib = nixpkgs.lib;
     mkHost = import ./lib/mkHost.nix {inherit inputs lib system;};
   in {
+    devShells.${system}.default = pkgs.mkShell {
+      packages = [pkgs.alejandra];
+    };
+
     nixosConfigurations = {
       laptop = mkHost {
         hostname = "laptop";

@@ -1,13 +1,19 @@
 {
   pkgs,
   lib,
+  settings,
+  terminals,
   ...
-}: {
-  # Alacritty — терминал
-  programs.alacritty = {
+}: let
+  term = terminals.${settings.terminal};
+
+  # File extension depends on the selected terminal
+  pathToConfig = "${terminals.${settings.terminal}.bin}/${terminals.${settings.terminal}.bin}.ini";
+in {
+  programs.${term.bin} = {
     enable = true;
   };
 
-  xdg.configFile."alacritty/alacritty.toml".source =
-    lib.mkForce ./config/alacritty/alacritty.toml;
+  xdg.configFile."${pathToConfig}".source =
+    lib.mkForce ./config/${pathToConfig};
 }

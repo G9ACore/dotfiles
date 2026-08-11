@@ -1,12 +1,17 @@
 {
   config,
   pkgs,
+  settings,
+  terminals,
   ...
 }: let
+  term = terminals.${settings.terminal};
+  termPkg = pkgs.${term.bin};
+
   yazi-chooser = pkgs.writeShellScriptBin "yazi-chooser" (
     builtins.replaceStrings
-    ["@alacritty@" "@yazi@"]
-    ["${pkgs.alacritty}/bin/alacritty" "${pkgs.yazi}/bin/yazi"]
+    ["@terminal@" "@yazi@"]
+    ["${termPkg}/bin/${term.bin}" "${pkgs.yazi}/bin/yazi"]
     (builtins.readFile ./config/termfilechooser/yazi-chooser.sh)
   );
 in {
@@ -30,13 +35,10 @@ in {
       projects = null;
     };
 
-    # yazi — TUI-программа, xdg-open не умеет запускать такие напрямую,
-    # поэтому оборачиваем в alacritty. Это отдельный .desktop-файл,
-    # который Firefox/PrismLauncher увидят как "Yazi" при открытии папки.
     desktopEntries.yazi = {
       name = "Yazi";
       comment = "Терминальный файловый менеджер";
-      exec = "alacritty -e yazi %f";
+      exec = term.exec "yazi %f";
       terminal = false;
       type = "Application";
       mimeType = ["inode/directory"];
@@ -50,7 +52,6 @@ in {
     };
   };
 
-  # Пакеты с systemd user units для Home Manager
   systemd.user.packages = [
     pkgs.xdg-desktop-portal
     pkgs.xdg-desktop-portal-termfilechooser
@@ -60,7 +61,7 @@ in {
   xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
     [filechooser]
     cmd=${yazi-chooser}/bin/yazi-chooser
-    default_dir=/home/dmitry
+    default_dir=/home/${settings.primaryUser}
     open_mode=suggested
     save_mode=last
   '';

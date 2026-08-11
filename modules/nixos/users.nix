@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   users = {
-    users.dmitry = {
+    users.${settings.primaryUser} = {
       group = "main";
       isNormalUser = true;
       extraGroups = ["networkmanager" "wheel"];
