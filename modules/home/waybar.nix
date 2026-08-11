@@ -8,8 +8,6 @@ in
       waybar
       swaynotificationcenter
       pavucontrol
-      wireplumber
-      nerd-fonts.jetbrains-mono
       jq
     ];
 
