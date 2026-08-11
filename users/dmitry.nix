@@ -1,6 +1,10 @@
-{ inputs, pkgs, lib, ... }:
 {
-  imports = [ ../modules/home/default.nix ];
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [../modules/home/default.nix];
 
   home = {
     username = lib.mkForce "dmitry";

@@ -1,5 +1,4 @@
-{ pkgs, ... }: 
-{
+{pkgs, ...}: {
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -10,9 +9,9 @@
       colloid-icon-theme
     ];
     fontconfig.defaultFonts = {
-      monospace = [ "JetBrainsMono Nerd Font Mono" ];
-      sansSerif = [ "Inter" ];
-      emoji = [ "Noto Color Emoji" ];
+      monospace = ["JetBrainsMono Nerd Font Mono"];
+      sansSerif = ["Inter"];
+      emoji = ["Noto Color Emoji"];
     };
   };
 }

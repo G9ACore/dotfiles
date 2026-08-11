@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -20,7 +24,7 @@
 
   systemd.user.services.xdg-document-portal = {
     overrideStrategy = "asDropin";
-    serviceConfig.ExecSearchPath = [ "${pkgs.fuse3}/bin" ];
+    serviceConfig.ExecSearchPath = ["${pkgs.fuse3}/bin"];
   };
 
   # Окружение для user-сервисов через NixOS

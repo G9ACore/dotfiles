@@ -1,13 +1,15 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   yazi-chooser = pkgs.writeShellScriptBin "yazi-chooser" (
     builtins.replaceStrings
-      [ "@alacritty@" "@yazi@" ]
-      [ "${pkgs.alacritty}/bin/alacritty" "${pkgs.yazi}/bin/yazi" ]
-      (builtins.readFile ./config/termfilechooser/yazi-chooser.sh)
+    ["@alacritty@" "@yazi@"]
+    ["${pkgs.alacritty}/bin/alacritty" "${pkgs.yazi}/bin/yazi"]
+    (builtins.readFile ./config/termfilechooser/yazi-chooser.sh)
   );
-in
-{
+in {
   xdg = {
     enable = true;
 
@@ -37,13 +39,13 @@ in
       exec = "alacritty -e yazi %f";
       terminal = false;
       type = "Application";
-      mimeType = [ "inode/directory" ];
+      mimeType = ["inode/directory"];
     };
 
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "inode/directory" = [ "yazi.desktop" ];
+        "inode/directory" = ["yazi.desktop"];
       };
     };
   };

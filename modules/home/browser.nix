@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
@@ -15,5 +14,5 @@
     };
   };
 
-  stylix.targets.firefox.profileNames = [ "default" ];
+  stylix.targets.firefox.profileNames = ["default"];
 }

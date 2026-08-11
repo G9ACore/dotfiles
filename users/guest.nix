@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ../modules/home/core.nix
     ../modules/home/stylix.nix

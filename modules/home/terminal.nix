@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   # Alacritty — терминал
   programs.alacritty = {
     enable = true;

@@ -1,5 +1,9 @@
-{ pkgs, inputs, config, ... }:
 {
+  pkgs,
+  inputs,
+  config,
+  ...
+}: {
   programs.niri = {
     enable = true;
     useNautilus = false;
@@ -20,8 +24,8 @@
 
   # Переменные окружения для Wayland
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";      # Electron под Wayland
-    MOZ_ENABLE_WAYLAND = "1";  # Firefox
+    NIXOS_OZONE_WL = "1"; # Electron под Wayland
+    MOZ_ENABLE_WAYLAND = "1"; # Firefox
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";

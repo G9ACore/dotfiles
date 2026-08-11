@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
 {
-  imports = [ ./hardware.nix ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware.nix];
 
   networking.hostName = "vm";
 

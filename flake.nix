@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,16 +25,22 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, agenix, ... }:
-  let
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    stylix,
+    agenix,
+    ...
+  }: let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-    mkHost = import ./lib/mkHost.nix { inherit inputs lib system; };
+    mkHost = import ./lib/mkHost.nix {inherit inputs lib system;};
   in {
     nixosConfigurations = {
       laptop = mkHost {
         hostname = "laptop";
-        users = [ "dmitry" ];
+        users = ["dmitry"];
       };
     };
   };

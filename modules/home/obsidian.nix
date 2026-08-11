@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.obsidian = {
     enable = true;
 
@@ -8,17 +7,16 @@
 
       settings = {
         app.legacyChat = false;
-	appearance = {
-	  baseFontSize = 16;
+        appearance = {
+          baseFontSize = 16;
           accentColor = "#b0c6ff";
 
-	  interfaceFontFamily = "Inter";
-	  textFontFamily = "Inter";
-	  monospaceFontFamily = "JetBrainsMono Nerd Font Mono";
+          interfaceFontFamily = "Inter";
+          textFontFamily = "Inter";
+          monospaceFontFamily = "JetBrainsMono Nerd Font Mono";
         };
       };
     };
-
 
     defaultSettings = {
       app = {
@@ -33,7 +31,7 @@
 
       themes = with pkgs.obsidianThemes; [
         # minimal
-	things
+        things
       ];
     };
   };

@@ -1,7 +1,6 @@
-{ ... }:
-{
+{...}: {
   imports = [
-    ./core.nix     
+    ./core.nix
     ./git.nix
     ./terminal.nix
     ./browser.nix

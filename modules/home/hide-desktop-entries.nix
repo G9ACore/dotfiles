@@ -21,9 +21,7 @@
 #
 # 2. Имя файла без .desktop подставь ниже как имя атрибута.
 #    Например если нашёл pavucontrol.desktop и qt5ct.desktop:
-
-{ ... }:
-{
+{...}: {
   xdg.desktopEntries = {
     pavucontrol = {
       name = "Pavucontrol";

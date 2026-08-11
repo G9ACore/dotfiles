@@ -1,9 +1,12 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   # Nix настройки
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
       trusted-users = [
         "root"
@@ -42,20 +45,21 @@
     file
     unzip
     neovim
-    pciutils   # lspci
-    usbutils   # lsusb
+    pciutils # lspci
+    usbutils # lsusb
   ];
 
   # Разрешить не-свободные пакеты (нужно для Steam, драйверов)
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-unwrapped"
-    "obsidian"
-    "unrar"
-    "nvidia-x11"
-    "nvidia-settings"
-    "nvidia-kernel-modules"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-unwrapped"
+      "obsidian"
+      "unrar"
+      "nvidia-x11"
+      "nvidia-settings"
+      "nvidia-kernel-modules"
+    ];
 
   # Загрузчик
   boot = {
@@ -64,13 +68,13 @@
       efi.canTouchEfiVariables = true;
     };
     # Disables kernel log messages on the console
-    kernelParams = [ "quiet" "systemd.show_status=false" "rd.systemd.show_status=false" "rd.udev.log_level=3" ];
-    
+    kernelParams = ["quiet" "systemd.show_status=false" "rd.systemd.show_status=false" "rd.udev.log_level=3"];
+
     # Hides systemd status messages during boot execution
     consoleLogLevel = 3;
     initrd.verbose = false;
 
-    supportedFilesystems = [ "ext4" "exfat" "ntfs" ];
+    supportedFilesystems = ["ext4" "exfat" "ntfs"];
   };
 
   zramSwap = {

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Steam
   programs.steam = {
     enable = true;
@@ -23,7 +22,6 @@
     };
   };
 
-
   # 32-битные библиотеки для Wine, Minecraft и старых игр
   hardware.graphics = {
     enable = true;
@@ -33,10 +31,10 @@
   environment.systemPackages = with pkgs; [
     # lutris          # Запуск игр не из Steam
     # heroic          # Epic Games / GOG
-    bottles         # Wine-контейнеры
-    mangohud        # Оверлей FPS/температур
-    protonup-qt     # Обновление Proton GE
-    mesa-demos         # диагностика OpenGL
+    bottles # Wine-контейнеры
+    mangohud # Оверлей FPS/температур
+    protonup-qt # Обновление Proton GE
+    mesa-demos # диагностика OpenGL
     xwayland-satellite
   ];
 }

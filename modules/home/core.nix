@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Base-user packages
   home.packages = with pkgs; [
     ripgrep

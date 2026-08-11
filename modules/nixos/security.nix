@@ -1,6 +1,9 @@
-{ pkgs, inputs, ... }:
 {
-  environment.systemPackages = [ inputs.agenix.packages.x86_64-linux.default ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default];
 
   # Sudo без пароля для wheel (опционально, удобно)
   # security.sudo.wheelNeedsPassword = false;
@@ -14,7 +17,7 @@
 
   # Системный SSH
   #services.openssh = {
-   # enable = false;  # Включи если нужен удалённый доступ
-    #settings.PasswordAuthentication = false;
+  # enable = false;  # Включи если нужен удалённый доступ
+  #settings.PasswordAuthentication = false;
   # };
 }

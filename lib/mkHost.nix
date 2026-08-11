@@ -1,6 +1,11 @@
-{ inputs, lib, system }:
-{ hostname, users }:
-
+{
+  inputs,
+  lib,
+  system,
+}: {
+  hostname,
+  users,
+}:
 inputs.nixpkgs.lib.nixosSystem {
   inherit system;
   specialArgs = {
@@ -16,7 +21,7 @@ inputs.nixpkgs.lib.nixosSystem {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = {inherit inputs;};
         users = lib.genAttrs users (user: import ../users/${user}.nix);
       };
 
