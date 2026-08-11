@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   programs.fish.enable = true;
 
@@ -6,9 +5,4 @@
     enable = true;
     settings = builtins.fromTOML (builtins.readFile ../home/config/starship/starship.toml);
   };
-
-  # home.sessionVariables = {
-  #   EDITOR = "nvim";
-  #   VISUAL = "nvim";
-  # };
 }

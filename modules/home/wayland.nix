@@ -2,7 +2,8 @@
 {
   # TODO: Раскидать все приложения по категориям: системные, под NiRi
 
-  home.packages = with pkgs; [    # Screenshots
+  home.packages = with pkgs; [
+    # Screenshots
     grim
     slurp
     swappy
@@ -23,9 +24,6 @@
     # Launcher
     fuzzel
 
-    # File manager
-    yazi
-
     # Network
     networkmanagerapplet
 
@@ -37,6 +35,12 @@
 
     # Music
     playerctl
+
+    # Trash utilite
+    trash-cli
+
+    # File/Dirs size viewer
+    gdu
   ];
 
   xdg.configFile."swappy/config".source = ./config/swappy/config;

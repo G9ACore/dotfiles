@@ -3,13 +3,14 @@
     enable = true;
     withRuby = false;
     withPython3 = false;
-    extraLuaConfig = ''
+    initLua = ''
       vim.api.nvim_create_autocmd("ColorScheme", {
         callback = function()
-          vim.api.nvim_set_hl(0, "Normal",   { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
-        end,
-      })
+          for _, group in ipairs({ "Normal", "NormalNC", "NormalFloat", "SignColumn", "EndOfBuffer" }) do
+            vim.api.nvim_set_hl(0, group, { bg = "none" })
+          end
+      end,
+    })
     '';
   };
 }

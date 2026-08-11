@@ -13,7 +13,7 @@
           accentColor = "#b0c6ff";
 
 	  interfaceFontFamily = "Inter";
-	  textFontFamily = "JetBrainsMono Nerd Font Mono";
+	  textFontFamily = "Inter";
 	  monospaceFontFamily = "JetBrainsMono Nerd Font Mono";
         };
       };
@@ -32,7 +32,8 @@
       ];
 
       themes = with pkgs.obsidianThemes; [
-        minimal
+        # minimal
+	things
       ];
     };
   };

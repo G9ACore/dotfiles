@@ -1,6 +1,9 @@
 { pkgs, inputs, config, ... }:
 {
-  programs.niri.enable = true; 
+  programs.niri = {
+    enable = true;
+    useNautilus = false;
+  };
 
   # Дисплейный менеджер
   services.greetd = {
@@ -14,13 +17,6 @@
   };
 
   systemd.user.services.niri.enableDefaultPath = false;
-
-  # XDG порталы — нужны для скриншотов, скринкаста, file picker
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
-  };
 
   # Переменные окружения для Wayland
   environment.sessionVariables = {

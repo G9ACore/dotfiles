@@ -1,4 +1,12 @@
-{ config, ... }:
+{ config, pkgs, ... }:
+let
+  yazi-chooser = pkgs.writeShellScriptBin "yazi-chooser" (
+    builtins.replaceStrings
+      [ "@alacritty@" "@yazi@" ]
+      [ "${pkgs.alacritty}/bin/alacritty" "${pkgs.yazi}/bin/yazi" ]
+      (builtins.readFile ./config/termfilechooser/yazi-chooser.sh)
+  );
+in
 {
   xdg = {
     enable = true;
@@ -39,4 +47,19 @@
       };
     };
   };
+
+  # Пакеты с systemd user units для Home Manager
+  systemd.user.packages = [
+    pkgs.xdg-desktop-portal
+    pkgs.xdg-desktop-portal-termfilechooser
+    pkgs.xdg-desktop-portal-gtk
+  ];
+
+  xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
+    [filechooser]
+    cmd=${yazi-chooser}/bin/yazi-chooser
+    default_dir=/home/dmitry
+    open_mode=suggested
+    save_mode=last
+  '';
 }

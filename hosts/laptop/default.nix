@@ -13,6 +13,7 @@
     ../../modules/nixos/security.nix
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/shell.nix
+    ../../modules/nixos/xdg.nix
 
     ../../secrets/secrets.nix
   ];
