@@ -15,13 +15,14 @@
   };
 
   extensions = [
+    (extension "foxy-proxy" "foxyproxy@eric.h.jung")
     # (extension "ublock-origin" "uBlock0@raymondhill.net")
     # Дополнительные расширения добавлять сюда
   ];
 in {
   # 1. Устанавливаем сам Zen Browser через Home Manager
   imports = [
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.default
   ];
 
   # (Home Manager умеет генерировать policies.json в ~/.mozilla/native-messaging-hosts или профиле)

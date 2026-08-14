@@ -5,14 +5,11 @@
     ./terminal.nix
     ./browser.nix
     ./niri.nix
-    ./gaming.nix
-    ./minecraft.nix
     ./xdg.nix
     ./waybar.nix
     ./wayland.nix
-    ./wallpaper.nix
+    ./wallpaper.nix #~
     ./yazi.nix
-    ./obsidian.nix
     ./gtk.nix
     ./launcher.nix
     ./wlogout.nix

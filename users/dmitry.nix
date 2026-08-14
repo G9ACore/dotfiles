@@ -4,7 +4,14 @@
   lib,
   ...
 }: {
-  imports = [../modules/home/default.nix];
+  imports = [
+    ../modules/home/default.nix
+
+    ../modules/home/gaming.nix
+    ../modules/home/minecraft.nix
+    ../modules/home/aliases.nix
+    ../modules/home/obsidian.nix
+  ];
 
   home = {
     username = lib.mkForce "dmitry";

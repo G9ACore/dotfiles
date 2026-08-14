@@ -15,6 +15,7 @@
     unrar
     zip
     lsof
+    glib
   ];
 
   programs.home-manager.enable = true;

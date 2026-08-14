@@ -23,9 +23,16 @@
   };
 
   # 32-битные библиотеки для Wine, Minecraft и старых игр
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    # udev-правила для DualShock/DualSense и прочих Steam-совместимых геймпадов
+    steam-hardware.enable = true;
+    # виртуальные устройства ввода, нужны Steam Input для ремаппинга/gyro
+    uinput.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -37,4 +44,7 @@
     mesa-demos # диагностика OpenGL
     xwayland-satellite
   ];
+
+  # на случай, если hid_playstation не подхватывается автоматически
+  boot.kernelModules = ["hid_playstation"];
 }

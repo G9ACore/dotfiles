@@ -1,17 +1,16 @@
 {
   pkgs,
   settings,
+  config,
   ...
 }: {
   users = {
     users.${settings.primaryUser} = {
       group = "main";
       isNormalUser = true;
-      extraGroups = ["networkmanager" "wheel"];
-
+      extraGroups = ["networkmanager" "wheel" "video" "input"];
       shell = pkgs.fish;
-
-      hashedPassword = "$6$.JkZ1o1BdUJmYDlJ$kxmgoLH5PiJJtDqxwH1PVJ7X1LN7JhoFGRsHLqKeEJ/uWLcPnbGua5vUNnImZi3KXbSRRHmEE3nZtkGFZVVJV0";
+      hashedPasswordFile = config.age.secrets.dmitry-password.path;
     };
     mutableUsers = false;
     groups.main = {};

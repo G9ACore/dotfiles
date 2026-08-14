@@ -5,6 +5,25 @@
 }: {
   environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default];
 
+  security.sudo.extraRules = [
+    {
+      users = ["dmitry"];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/nixos-rebuild";
+          options = ["NOPASSWD"];
+        }
+        {
+          command = "/run/current-system/sw/bin/systemctl poweroff";
+          options = ["NOPASSWD"];
+        }
+        {
+          command = "/run/current-system/sw/bin/systemctl reboot";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
   # Sudo без пароля для wheel (опционально, удобно)
   # security.sudo.wheelNeedsPassword = false;
 
@@ -14,10 +33,11 @@
   # Keyring — хранение паролей (нужен для некоторых приложений)
   # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.greetd.enableGnomeKeyring = true;
-
-  # Системный SSH
-  #services.openssh = {
-  # enable = false;  # Включи если нужен удалённый доступ
-  #settings.PasswordAuthentication = false;
-  # };
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false; # только по ключу — важно для безопасности
+      PermitRootLogin = "no";
+    };
+  };
 }

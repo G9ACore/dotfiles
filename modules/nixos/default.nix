@@ -6,5 +6,6 @@
     ./users.nix
     ./fonts.nix
     ./drives.nix
+    ./mtp.nix
   ];
 }

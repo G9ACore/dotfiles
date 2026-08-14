@@ -18,8 +18,7 @@
     ../../modules/nixos/nvidia.nix
     ../../modules/nixos/shell.nix
     ../../modules/nixos/xdg.nix
-
-    ../../secrets/secrets.nix
+    ../../modules/nixos/secrets.nix
   ];
 
   networking.hostName = "G9ACore";
