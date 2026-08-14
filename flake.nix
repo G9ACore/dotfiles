@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     obsidian-extensions = {
       url = "github:karaolidis/nix-obsidian-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,6 +36,7 @@
     home-manager,
     stylix,
     agenix,
+    zen-browser,
     ...
   }: let
     system = "x86_64-linux";
@@ -47,6 +53,7 @@
       laptop = mkHost {
         hostname = "laptop";
         users = ["dmitry"];
+        extraOverlays = [inputs.obsidian-extensions.overlays.default];
       };
     };
   };

@@ -7,8 +7,9 @@
     waybar.enable = false;
     alacritty.enable = false;
     fuzzel.enable = false;
-    # wlogout.enable = false;
     swaync.enable = false;
     swaylock.enable = false;
+
+    zen-browser.profileNames = ["default"];
   };
 }

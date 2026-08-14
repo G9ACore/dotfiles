@@ -5,6 +5,7 @@
 }: {
   hostname,
   users,
+  extraOverlays ? [],
 }: let
   settings = import ./settings.nix;
   terminals = import ./terminals.nix;
@@ -25,14 +26,12 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "backup";
           extraSpecialArgs = {inherit inputs settings terminals;};
           users = lib.genAttrs users (user: import ../users/${user}.nix);
         };
 
-        # TODO: Move obsidian overlay, because mkHost uni for all users
-        nixpkgs.overlays = [
-          inputs.obsidian-extensions.overlays.default
-        ];
+        nixpkgs.overlays = extraOverlays;
       }
     ];
   }
