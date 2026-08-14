@@ -2,6 +2,8 @@
   imports = [
     ./core.nix
     ./git.nix
+    ./lock.nix
+    ./idle.nix
     ./terminal.nix
     ./browser.nix
     ./niri.nix

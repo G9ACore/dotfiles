@@ -9,7 +9,11 @@
     inherit fsType;
     options =
       [
-        "rw" "user" "exec" "nofail" "noauto"
+        "rw"
+        "user"
+        "exec"
+        "nofail"
+        "noauto"
         "x-systemd.automount"
         "x-systemd.device-timeout=5"
         "x-systemd.idle-timeout=120"

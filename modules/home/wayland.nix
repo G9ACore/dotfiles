@@ -7,10 +7,6 @@
     slurp
     swappy
 
-    # Display lock
-    swaylock
-    swayidle
-
     # Wayland utilities
     wl-clipboard
     wl-clip-persist
