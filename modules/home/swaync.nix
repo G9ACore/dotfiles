@@ -6,6 +6,10 @@
   xdg.configFile."swaync/style.css".source = ./config/swaync/style.css;
   xdg.configFile."swaync/config.json".source = ./config/swaync/config.json;
 
+  home.packages = with pkgs; [
+    libnotify
+  ];
+
   systemd.user.services.swaync = {
     Unit = {
       Description = "Sway Notification Center";

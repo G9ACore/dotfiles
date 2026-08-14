@@ -12,7 +12,7 @@
       datestr = "%A, %d %B";
 
       indicator = true;
-      indicator-radius = 100;
+      indicator-radius = 125;
       indicator-thickness = 10;
       font = "JetBrainsMono Nerd Font Mono";
       font-size = 24;
