@@ -1,6 +1,7 @@
 {
   "custom/distro": {
     "format": "",
+    "on-click": "wlogout",
     "tooltip": false
   },
 
@@ -30,7 +31,7 @@
 
   "custom/browser": {
     "format": "",
-    "on-click": "zen-browser",
+    "on-click": "zen-beta",
     "tooltip": false
   }
 }

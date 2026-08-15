@@ -5,7 +5,7 @@
   services.udev.packages = [pkgs.libmtp]; # 69-libmtp.rules — права на MTP-устройства для обычного юзера
 
   environment.systemPackages = with pkgs; [
-    jmtpfs # ручное монтирование телефона в обычную папку
+    # jmtpfs # ручное монтирование телефона в обычную папку
     android-file-transfer
   ];
 }

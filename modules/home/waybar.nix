@@ -23,6 +23,15 @@
     power-profiles-daemon
   ];
 
+  programs.waybar = {
+    enable = true;
+
+    systemd = {
+      enable = true;
+      targets = [ "graphical-session.target" ];
+    };
+  };
+
   xdg.configFile."waybar" = {
     source = ./config/waybar;
     recursive = true;

@@ -111,3 +111,13 @@
 #tray > .needs-attention {
   -gtk-icon-effect: none;
 }
+
+#language {
+  margin: 4px 5px;
+  padding: 6px 14px;
+
+  background-color: @surface_container;
+  border-radius: 20px;
+
+  color: @secondary_fixed_dim;
+}

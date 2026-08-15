@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +40,7 @@
     nixpkgs,
     home-manager,
     stylix,
+    git-hooks,
     agenix,
     zen-browser,
     ...
@@ -45,8 +51,16 @@
     lib = nixpkgs.lib;
     mkHost = import ./lib/mkHost.nix {inherit inputs lib system;};
   in {
+    checks.${system}.pre-commit-check = git-hooks.lib.${system}.run {
+      src = ./.;
+      hooks = {
+        alejandra.enable = true; # Встроенная поддержка Alejandra
+      };
+    };
+
     devShells.${system}.default = pkgs.mkShell {
-      packages = [pkgs.alejandra];
+      inherit (self.checks.${system}.pre-commit-check) shellHook;
+      buildInputs = [ pkgs.alejandra ];
     };
 
     nixosConfigurations = {

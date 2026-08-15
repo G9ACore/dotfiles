@@ -1,0 +1,16 @@
+tooltip {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+tooltip box {
+    background: @surface_container_highest;
+    border: 1px solid @outline_variant;
+    border-radius: 16px;
+    padding: 8px 12px;
+}
+
+tooltip label {
+    color: @on_surface;
+}

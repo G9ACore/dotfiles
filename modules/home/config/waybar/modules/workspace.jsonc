@@ -1,24 +1,20 @@
 {
   "niri/workspaces": {
-    "format": "{icon} {windows}",
+    "format": "{icon}",
     "on-click": "activate",
 
     "window-rewrite-default": "󰊠",
 
     "window-rewrite": {
-      "kitty": "󰆍",
-      "Alacritty": "󰆍",
+      "foot": "󰆍",
 
-      "firefox": "",
-      "code": "󰨞",
+      "zen-beta": "",
 
       "discord": "",
-      "spotify": "",
 
       "obsidian": "󰹕",
 
-      "yazi": "󰇥",
-      "thunar": "",
+      "yazi": "",
 
       "imv": "󰄄",
       "vlc": "󰕼",
