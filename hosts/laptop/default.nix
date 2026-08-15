@@ -25,7 +25,9 @@
 
   # Специфика ноутбука
   # TODO: Вынести bluetooth в отдельный файл
-  # services.tlp.enable = true;       # Управление питанием
+  # services.tlp.enable = true;
+
+  services.power-profiles-daemon.enable = true;
   hardware.bluetooth.enable = true;
 
   system.stateVersion = "25.05";

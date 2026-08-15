@@ -1,0 +1,13 @@
+{
+  "idle_inhibitor": {
+    "format": "{icon}",
+
+    "format-icons": {
+      "activated": "󰛨",
+      "deactivated": "󰛩"
+    },
+
+    "tooltip-format-activated": "System Focused",
+    "tooltip-format-deactivated": "Normal Mode"
+  }
+}

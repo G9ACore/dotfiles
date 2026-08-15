@@ -7,31 +7,18 @@
     slurp
     swappy
 
-    # Wayland utilities
-    wl-clipboard
-    wl-clip-persist
-    cliphist
-    wlr-randr
-
     # Wallpaper
     swaybg
 
     # Launcher
     fuzzel
 
-    # Network
-    networkmanagerapplet
-
     # Brightness
     brightnessctl
-
-    # Bluetooth
-    blueman
 
     # Audio
     playerctl
     helvum
-    pavucontrol
 
     # Trash utilite
     trash-cli

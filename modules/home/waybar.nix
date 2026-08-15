@@ -1,41 +1,30 @@
-{pkgs, ...}: let
-  css = ./config/waybar/css;
-in {
-  home = {
-    packages = with pkgs; [
-      waybar
-      swaynotificationcenter
-      pavucontrol
-      jq
-    ];
+{ config, pkgs, ... }:
 
-    file.".config/waybar/scripts/battery-status.sh" = {
-      source = ./config/waybar/scripts/battery-status.sh;
-      executable = true;
-    };
+{
+  home.packages = with pkgs; [
+    waybar
 
-    file.".config/waybar/scripts/language.sh" = {
-      source = ./config/waybar/scripts/language.sh;
-      executable = true;
-    };
-  };
+    # Athena использует их в кликах/модулях
+    pavucontrol
+    networkmanagerapplet
+    blueman
+    wl-clipboard
 
-  programs.waybar = {
-    enable = true;
+    wl-clip-persist
+    cliphist
+    wlr-randr
 
-    style = builtins.concatStringsSep "\n" [
-      (builtins.readFile "${css}/colors.css")
-      (builtins.readFile "${css}/style.css")
-    ];
 
-    settings = [
-      (builtins.fromJSON (builtins.readFile ./config/waybar/config.jsonc))
-    ];
+    # Нужен для notification/tray части Athena.
+    # Можно убрать, если SwayNC у тебя не используется.
+    swaynotificationcenter
 
-    # To make the waybar open when you log in
-    systemd = {
-      enable = true;
-      targets = ["graphical-session.target"];
-    };
+    # Power profiles
+    power-profiles-daemon
+  ];
+
+  xdg.configFile."waybar" = {
+    source = ./config/waybar;
+    recursive = true;
   };
 }

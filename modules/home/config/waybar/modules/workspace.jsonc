@@ -1,0 +1,45 @@
+{
+  "niri/workspaces": {
+    "format": "{icon} {windows}",
+    "on-click": "activate",
+
+    "window-rewrite-default": "󰊠",
+
+    "window-rewrite": {
+      "kitty": "󰆍",
+      "Alacritty": "󰆍",
+
+      "firefox": "",
+      "code": "󰨞",
+
+      "discord": "",
+      "spotify": "",
+
+      "obsidian": "󰹕",
+
+      "yazi": "󰇥",
+      "thunar": "",
+
+      "imv": "󰄄",
+      "vlc": "󰕼",
+      "mpv": "󰕼",
+
+      "blueman-manager": "",
+      "pavucontrol": "󱕂",
+
+      "org.kde.kdeconnect.app": "󰦉",
+      "org.qbittorrent.qBittorrent": "󰘿"
+    },
+
+    "format-icons": {
+      "active": "󰮯",
+      "special": "󱁂",
+      "default": "󰊠",
+      "urgent": "󰧵",
+      "empty": ""
+    },
+
+    "show-special": true,
+    "all-outputs": true
+  }
+}
