@@ -9,7 +9,7 @@
 in {
   services.swayidle = {
     enable = true;
-    systemdTargets = [ "graphical-session.target" ];
+    systemdTargets = ["graphical-session.target"];
 
     timeouts = [
       {
@@ -33,19 +33,19 @@ in {
     events = [
       {
         event = "before-sleep";
-	command = (display "off") + "; " + lock;
+        command = (display "off") + "; " + lock;
       }
       {
         event = "after-resume";
-	command = display "on";
+        command = display "on";
       }
       {
         event = "lock";
-	command = (display "off") + "; " + lock;
+        command = (display "off") + "; " + lock;
       }
       {
         event = "unlock";
-	command = display "on";
+        command = display "on";
       }
     ];
   };

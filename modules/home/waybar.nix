@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     waybar
 
@@ -13,7 +15,6 @@
     wl-clip-persist
     cliphist
     wlr-randr
-
 
     # Нужен для notification/tray части Athena.
     # Можно убрать, если SwayNC у тебя не используется.
@@ -28,7 +29,7 @@
 
     systemd = {
       enable = true;
-      targets = [ "graphical-session.target" ];
+      targets = ["graphical-session.target"];
     };
   };
 

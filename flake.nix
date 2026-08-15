@@ -60,7 +60,7 @@
 
     devShells.${system}.default = pkgs.mkShell {
       inherit (self.checks.${system}.pre-commit-check) shellHook;
-      buildInputs = [ pkgs.alejandra ];
+      buildInputs = [pkgs.alejandra];
     };
 
     nixosConfigurations = {
