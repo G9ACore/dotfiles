@@ -7,6 +7,12 @@
     slurp
     swappy
 
+    # Clipboard and its utilities
+    wl-clipboard
+    wl-clip-persist
+    cliphist
+    wlr-randr
+
     # Wallpaper
     swaybg
 

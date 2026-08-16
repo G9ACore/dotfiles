@@ -19,6 +19,8 @@
     ../../modules/nixos/shell.nix
     ../../modules/nixos/xdg.nix
     ../../modules/nixos/secrets.nix
+    ../../modules/nixos/unfree.nix
+    ../../modules/nixos/team-comms.nix
   ];
 
   networking.hostName = "G9ACore";

@@ -1,9 +1,4 @@
 [[mgr.prepend_keymap]]
-on = "U"
-run = 'shell -- echo worked > /tmp/yazi-shell-test'
-desc = "Test shell"
-
-[[mgr.prepend_keymap]]
 on = "e"
 run = 'shell --block -- gdu %s'
 desc = "Размер папки"

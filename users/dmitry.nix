@@ -11,6 +11,7 @@
     ../modules/home/minecraft.nix
     ../modules/home/aliases.nix
     ../modules/home/obsidian.nix
+    ../modules/home/packages.nix
   ];
 
   home = {

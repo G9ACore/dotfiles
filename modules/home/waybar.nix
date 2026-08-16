@@ -10,11 +10,6 @@
     pavucontrol
     networkmanagerapplet
     blueman
-    wl-clipboard
-
-    wl-clip-persist
-    cliphist
-    wlr-randr
 
     # Нужен для notification/tray части Athena.
     # Можно убрать, если SwayNC у тебя не используется.
