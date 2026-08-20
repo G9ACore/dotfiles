@@ -14,6 +14,7 @@
         "exec"
         "nofail"
         "noauto"
+	"windows_names"
         "x-systemd.automount"
         "x-systemd.device-timeout=5"
         "x-systemd.idle-timeout=120"

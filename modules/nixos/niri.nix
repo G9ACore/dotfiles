@@ -31,5 +31,6 @@
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     XDG_CURRENT_DESKTOP = "niri";
+    GTK_USE_PORTAL = "1";
   };
 }

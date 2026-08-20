@@ -7,5 +7,6 @@
     ./fonts.nix
     ./drives.nix
     ./mtp.nix
+    ./print.nix
   ];
 }

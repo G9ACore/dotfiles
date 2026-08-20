@@ -15,7 +15,10 @@
     unrar
     zip
     lsof
+
     glib
+
+    python3
   ];
 
   programs.home-manager.enable = true;

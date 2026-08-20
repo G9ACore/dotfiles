@@ -2,9 +2,14 @@
   # Steam
   programs.steam = {
     enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
 
+    # what this?
     extest.enable = true;
   };
 
@@ -46,5 +51,11 @@
   ];
 
   # на случай, если hid_playstation не подхватывается автоматически
-  boot.kernelModules = ["hid_playstation"];
+  # второй параметр даёт нормальные фпс в Far Cry 6 и подобныз играх
+  boot = {
+    kernelModules = ["hid_playstation"];
+    kernel.sysctl = {
+      "kernel.split_lock_mitigate" = 0;
+    };
+  };
 }

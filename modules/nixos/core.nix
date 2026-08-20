@@ -41,7 +41,6 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
-    btop
     file
     unzip
     neovim

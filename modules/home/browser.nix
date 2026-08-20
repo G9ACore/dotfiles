@@ -78,7 +78,7 @@ in {
         "extensions.pocket.enabled" = false;
 
         # Обязательно для использования userChrome.css
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # Пример других удобных опций:
         "browser.tabs.warnOnClose" = false;

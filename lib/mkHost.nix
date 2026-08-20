@@ -6,6 +6,7 @@
   hostname,
   users,
   extraOverlays ? [],
+  extraModules ? [],
 }: let
   settings = import ./settings.nix;
   terminals = import ./terminals.nix;
@@ -29,6 +30,7 @@ in
           backupFileExtension = "backup";
           extraSpecialArgs = {inherit inputs settings terminals;};
           users = lib.genAttrs users (user: import ../users/${user}.nix);
+	  sharedModules = extraModules;
         };
 
         nixpkgs.overlays = extraOverlays;

@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +45,7 @@
     nixpkgs,
     home-manager,
     stylix,
+    nixvim,
     git-hooks,
     agenix,
     zen-browser,
@@ -60,7 +66,9 @@
 
     devShells.${system}.default = pkgs.mkShell {
       inherit (self.checks.${system}.pre-commit-check) shellHook;
-      buildInputs = [pkgs.alejandra];
+      buildInputs =
+      [pkgs.alejandra];
+      ++ self.checks.${system}.pre-commit-check.enabledPackages;
     };
 
     nixosConfigurations = {
@@ -68,6 +76,7 @@
         hostname = "laptop";
         users = ["dmitry"];
         extraOverlays = [inputs.obsidian-extensions.overlays.default];
+	extraModules = [inputs.nixvim.homeManagerModules.nixvim];
       };
     };
   };

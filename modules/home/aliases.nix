@@ -2,6 +2,10 @@
   programs.fish = {
     enable = true;
 
+    shellAliases = {
+      python = "python3";
+    };
+
     shellAbbrs = {
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#laptop";
       # nrsvm = "nixos-rebuild switch --flake ~/dotfiles#vm";

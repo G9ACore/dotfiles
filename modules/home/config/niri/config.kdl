@@ -280,13 +280,9 @@ animations {
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 
 // Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    // match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    // default-column-width {}
+    match app-id=r#"^steam_app_.*"#
+    open-floating true
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -315,6 +311,12 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+
+    default-floating-position x=0 y=20 relative-to="bottom-right"
 }
 
 binds {

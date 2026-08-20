@@ -13,6 +13,7 @@
     ./wallpaper.nix #~
     ./yazi.nix
     ./gtk.nix
+    ./task-manager.nix
     ./launcher.nix
     ./wlogout.nix
     ./swaync.nix
