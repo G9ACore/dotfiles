@@ -11,7 +11,7 @@
 {
   primaryUser = "dmitry";
 
-  timeZone = "Europe/Moscow";
+  timeZone = "Asia/Anadyr";
 
   # alacritty | wezterm | foot — см. lib/terminals.nix
   terminal = "foot";

@@ -11,11 +11,11 @@
 }
 
 .notification {
-    background: #1e1f25;
-    border: 1px solid #44464f;
+    background: @base01@;
+    border: 1px solid #@base03;
     border-radius: 20px;
     padding: 4px;
-    color: #e2e2e9;
+    color: @base05@;
 }
 
 .notification-content {
@@ -24,46 +24,46 @@
 }
 
 .notification .body {
-    color: #c5c6d0;
+    color: @base04@;
 }
 
 .notification .summary {
-    color: #e2e2e9;
+    color: @base05@;
     font-weight: bold;
 }
 
 .notification.critical {
-    border: 1px solid #ffb4ab;
+    border: 1px solid @base08@;
 }
 
 .notification-action-box button {
-    background: #282a2f;
-    color: #e2e2e9;
+    background: @base02@;
+    color: @base05@;
     border-radius: 12px;
     margin: 4px;
 }
 
 .notification-action-box button:hover {
-    background: #2e4578;
-    color: #d9e2ff;
+    background: @base01@;
+    color: @base05@;
 }
 
 .close-button {
-    background: #282a2f;
-    color: #e2e2e9;
+    background: @base02@;
+    color: @base05@;
     border-radius: 999px;
     padding: 2px;
 }
 
 .close-button:hover {
-    background: #ffb4ab;
-    color: #121318;
+    background: @base08@;
+    color: @base00@;
 }
 
 .control-center {
     background: rgba(18, 19, 24, 0.92);
     border-radius: 20px;
-    border: 1px solid #44464f;
+    border: 1px solid @base03@;
 }
 
 .control-center-list {
@@ -71,39 +71,39 @@
 }
 
 .widget-title {
-    color: #e2e2e9;
+    color: @base05@;
     font-size: 16px;
     padding: 8px;
 }
 
 .widget-title button {
-    background: #282a2f;
-    color: #e2e2e9;
+    background: @base02@;
+    color: @base05@;
     border-radius: 12px;
 }
 
-.widget-dnd {
-    background: #1e1f25;
+.widget-dnd {2
+    background: @base01@;
     border-radius: 16px;
     padding: 6px;
 }
 
 .widget-dnd > switch {
-    background: #44464f;
+    background: @base03@;
     border-radius: 999px;
 }
 
 .widget-dnd > switch:checked {
-    background: #b0c6ff;
+    background: @base0D@;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button {
-    background: #282a2f;
-    color: #e2e2e9;
+    background: @base02@;
+    color: @base05@;
     border-radius: 14px;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-    background: #2e4578;
-    color: #d9e2ff;
+    background: @base01@;
+    color: @base05@;
 }

@@ -16,5 +16,6 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: @surface;
+  border-radius: 20px;
 }

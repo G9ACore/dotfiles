@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -17,29 +17,27 @@
       signcolumn = "yes";
       updatetime = 250;
       mouse = "a";
-      clipboard = "unnamedplus"; # системный буфер через wl-clipboard, он уже есть
+      clipboard = "unnamedplus";
       splitright = true;
       splitbelow = true;
+      smartindent = false;
+      cindent = false;
+      autoindent = true;
+    };
+
+    # Для работы горячих клавиш на русской ракладке
+    globalOpts = {
+      langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz";
+      langnormap = false;
     };
 
     globals.mapleader = " ";
-
-    # --- Прозрачный фон (перенесено из старого конфига) ---
-    extraConfigLua = ''
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        callback = function()
-          for _, group in ipairs({ "Normal", "NormalNC", "NormalFloat", "SignColumn", "EndOfBuffer" }) do
-            vim.api.nvim_set_hl(0, group, { bg = "none" })
-          end
-        end,
-      })
-    '';
 
     # --- Подсветка синтаксиса ---
     plugins.treesitter = {
       enable = true;
       settings.highlight.enable = true;
-      settings.indent.enable = true;
+      settings.indent.enable = false;
     };
 
     # --- LSP ---
@@ -47,7 +45,7 @@
       enable = true;
       servers = {
         nixd.enable = true; # LSP для .nix (по конфигу самого репозитория)
-        lua-ls.enable = true;
+        lua_ls.enable = true;
         bashls.enable = true;
         pyright.enable = true;
         # добавляй сюда другие: rust-analyzer, tsserver, clangd и т.п.
@@ -158,5 +156,20 @@
     plugins.nvim-autopairs.enable = true;
     plugins.which-key.enable = true; # подсказки биндов при вводе <leader>
     plugins.web-devicons.enable = true;
+
+    # Изменение фона редактора под терминал
+    extraConfigLua = let
+      c = config.lib.stylix.colors.withHashtag;
+    in ''
+      local function set_transparent()
+        for _, group in ipairs({ "Normal", "NormalNC", "NormalFloat", "SignColumn", "EndOfBuffer", "FloatBorder" }) do
+          vim.api.nvim_set_hl(0, group, { bg = "${c.base00}" })
+        end
+      end
+      vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
+        callback = set_transparent,
+      })
+      set_transparent() -- применить сразу, не дожидаясь событий
+    '';
   };
 }

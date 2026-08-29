@@ -8,11 +8,13 @@
   term = terminals.${settings.terminal};
   termPkg = pkgs.${term.bin};
 
+  render = import ../../lib/mkTemplate.nix;
+
   yazi-chooser = pkgs.writeShellScriptBin "yazi-chooser" (
-    builtins.replaceStrings
-    ["@terminal@" "@yazi@"]
-    ["${termPkg}/bin/${term.bin}" "${pkgs.yazi}/bin/yazi"]
-    (builtins.readFile ./config/termfilechooser/yazi-chooser.sh)
+    render ./config/termfilechooser/yazi-chooser.sh {
+      terminal = "${termPkg}/bin/${term.bin}";
+      yazi = "${pkgs.yazi}/bin/yazi";
+    }
   );
 in {
   xdg = {
@@ -23,10 +25,10 @@ in {
       createDirectories = true;
       setSessionVariables = false;
 
-      documents = "${config.home.homeDirectory}/docs";
-      download = "${config.home.homeDirectory}/downloads";
-      pictures = "${config.home.homeDirectory}/pics";
-      videos = "${config.home.homeDirectory}/vids";
+      documents = "${config.home.homeDirectory}/Documents";
+      download = "${config.home.homeDirectory}/Downloads";
+      pictures = "${config.home.homeDirectory}/Pictures";
+      videos = "${config.home.homeDirectory}/Videos";
 
       desktop = null;
       music = null;

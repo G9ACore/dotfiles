@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   ...
 }: {
@@ -28,7 +27,7 @@
   # security.sudo.wheelNeedsPassword = false;
 
   # Polkit — авторизация GUI приложений
-  # security.polkit.enable = true;
+  security.polkit.enable = true;
 
   # Keyring — хранение паролей (нужен для некоторых приложений)
   # services.gnome.gnome-keyring.enable = true;

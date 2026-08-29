@@ -10,14 +10,7 @@
   stylix = {
     enable = true;
 
-    # Наша base16-схема, собранная из палитры colors.css (см. base16-matugen.yaml)
-    base16Scheme = ../../assets/base16-matugen.yaml;
-
-    # Опционально: если когда-нибудь захочешь пересобирать всю систему под
-    # обои через matugen/wallust, можно заменить base16Scheme на:
-    # stylix.image = ./wallpapers/current.png;
-    # но тогда waybar/alacritty могут разъехаться с остальной темой —
-    # проще один раз сгенерировать base16 из финальной Matugen-палитры.
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
     image = ../../assets/wallpapers/wallpaper.jpg; # обои — используются также swaybg-модулем
 

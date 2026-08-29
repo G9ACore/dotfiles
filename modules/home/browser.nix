@@ -1,8 +1,5 @@
 {
-  config,
-  pkgs,
   inputs,
-  lib,
   ...
 }: let
   # Вспомогательная функция для расширений с Firefox Add-ons
@@ -16,13 +13,13 @@
 
   extensions = [
     (extension "foxy-proxy" "foxyproxy@eric.h.jung")
-    # (extension "ublock-origin" "uBlock0@raymondhill.net")
+    (extension "bonjourr" "4f391a9e-8717-4ba6-a5b1-488a34931fcb")
     # Дополнительные расширения добавлять сюда
   ];
 in {
   # 1. Устанавливаем сам Zen Browser через Home Manager
   imports = [
-    inputs.zen-browser.homeModules.default
+    inputs.zen-browser.homeModules.beta
   ];
 
   # (Home Manager умеет генерировать policies.json в ~/.mozilla/native-messaging-hosts или профиле)
@@ -72,14 +69,18 @@ in {
       name = "default";
       isDefault = true;
 
-      # Аналог вашего prefs из let-блока
       settings = {
         "extensions.autoDisableScopes" = 0;
         "extensions.pocket.enabled" = false;
 
+        # Для быстрого скроллинга при помощи нажатия колёсика мыши
+	"general.autoScroll" = true;
         # Обязательно для использования userChrome.css
         # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
+        # Чтобы уведомления от браузера не дублировались
+        "widget.use-xdg-desktop-portal.notification" = false;
+        
         # Пример других удобных опций:
         "browser.tabs.warnOnClose" = false;
         "browser.download.panel.shown" = true;

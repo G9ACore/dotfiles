@@ -20,5 +20,6 @@
     ./stylix.nix
     ./neovim.nix
     ./hide-desktop-entries.nix
+    ./udiskie.nix
   ];
 }

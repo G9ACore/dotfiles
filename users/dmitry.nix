@@ -12,6 +12,7 @@
     ../modules/home/aliases.nix
     ../modules/home/obsidian.nix
     ../modules/home/packages.nix
+    ../modules/home/obs.nix
   ];
 
   home = {
@@ -19,4 +20,7 @@
     homeDirectory = lib.mkForce "/home/dmitry";
     stateVersion = "25.05";
   };
+
+  # Убирает навязчивое уведомление при пересборке системы
+  home-manager.users.dmitry.programs.nixvim.nixpkgs.source = pkgs;
 }

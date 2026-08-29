@@ -13,40 +13,28 @@ in {
 
     timeouts = [
       {
-        timeout = 295; # in seconds
-        command = "${pkgs.libnotify}/bin/notify-send 'Locking in 5 seconds' -t 5000";
+        timeout = 895; # in seconds
+        command = "${pkgs.libnotify}/bin/notify-send -h boolean:transient:true -t 5000 'Locking in 5 seconds'";
       }
       {
-        timeout = 300;
+        timeout = 900;
         command = lock;
       }
       {
-        timeout = 450;
+        timeout = 1000;
         command = display "off";
         resumeCommand = display "on";
       }
       {
-        timeout = 600;
+        timeout = 1800;
         command = "${pkgs.systemd}/bin/systemctl suspend";
       }
     ];
-    events = [
-      {
-        event = "before-sleep";
-        command = (display "off") + "; " + lock;
-      }
-      {
-        event = "after-resume";
-        command = display "on";
-      }
-      {
-        event = "lock";
-        command = (display "off") + "; " + lock;
-      }
-      {
-        event = "unlock";
-        command = display "on";
-      }
-    ];
+    events = {
+      before-sleep = (display "off") + "; " + lock;
+      after-resume = display "on";
+      lock = (display "off") + "; " + lock;
+      unlock = display "on";
+    };
   };
 }

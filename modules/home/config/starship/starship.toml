@@ -1,34 +1,25 @@
-# ~/.config/starship.toml
-# Палитра — та же, что в waybar/colors.css
-# Скруглённые "колпачки" (Powerline U+E0B6/U+E0B4) — непрерывная капсула, как в waybar.
-
 format = """
-[](fg:#2e4578)\
-[  $directory](bg:#2e4578 fg:#e2e2e9)\
-[](fg:#2e4578 bg:#404659)\
-[$git_branch$git_status](bg:#404659 fg:#c0c6dc)\
-[](fg:#404659)
+[](fg:@base01@)\
+[  $directory](bg:@base01@ fg:@base05@)\
+[](fg:@base01@ bg:@base02@)\
+[  $git_branch$git_status](bg:@base02@ fg:@base0A@)\
+[](fg:@base02@)
 $character"""
 
 [directory]
-style = "bg:#2e4578 fg:#e2e2e9"
-truncation_length = 4
-truncate_to_repo = true
-truncation_symbol = "…/"
+style = "bg:@base02@ fg:@base05@"
 
 [git_branch]
-symbol = " "
-style = "bg:#404659 fg:#c0c6dc"
-format = "[ $symbol$branch ]($style)"
+symbol = " "
+style = "bg:@base03@ fg:@base04@"
 
 [git_status]
-style = "bg:#404659 fg:#ffb4ab"
-format = "[$all_status$ahead_behind ]($style)"
+style = "bg:@base03@ fg:@base08@"
 
 [character]
-success_symbol = "[❯](bold #b0c6ff)"
-error_symbol = "[❯](bold #ffb4ab)"
-vicmd_symbol = "[❮](bold #e0bbde)"
+success_symbol = "[❯](bold @base0D@)"
+error_symbol = "[❯](bold @base08@)"
+vicmd_symbol = "[❮](bold @base0E@)"
 
 [cmd_duration]
 min_time = 2000

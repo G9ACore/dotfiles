@@ -34,4 +34,7 @@
   ];
 
   xdg.configFile."swappy/config".source = ./config/swappy/config;
+
+  home.file.".config/wallpaper.jpg".source =
+    ../../assets/wallpapers/wallpaper.jpg;
 }

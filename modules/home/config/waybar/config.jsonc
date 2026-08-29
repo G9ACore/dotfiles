@@ -6,7 +6,9 @@
 {
   "layer": "top",
   "height": 42,
-  "spacing": 6,
+  "margin-top": 8, 
+  "margin-left": 8, 
+  "margin-right": 8, 
 
   "include": [
     "./modules/groups.jsonc",

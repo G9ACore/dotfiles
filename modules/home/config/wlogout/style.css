@@ -1,12 +1,11 @@
-/* ~/.config/wlogout/style.css */
-@define-color background #121318;
-@define-color surface_container #1e1f25;
-@define-color surface_container_high #282a2f;
-@define-color on_surface #e2e2e9;
-@define-color on_surface_variant #c5c6d0;
-@define-color primary #b0c6ff;
-@define-color primary_container #2e4578;
-@define-color error #ffb4ab;
+@define-color background @base00@;
+@define-color surface_container @base01@;
+@define-color surface_container_high @base02@;
+@define-color on_surface @base05@;
+@define-color on_surface_variant @base04@;
+@define-color primary @base0D@;
+@define-color primary_container @base01@;
+@define-color error @base08@;
 
 * {
     font-family: "JetBrainsMono Nerd Font Mono";

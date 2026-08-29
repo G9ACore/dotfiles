@@ -262,7 +262,7 @@ overview {
 screenshot-path "~/pics/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
+screenshot-path null
 
 // Animation settings.
 // The wiki explains how to configure individual animations:
@@ -275,11 +275,16 @@ animations {
     // slowdown 3.0
 }
 
+// Чтобы бар корректно отображался со скруглениям
+layer-rule {
+    match namespace="waybar"
+    opacity 0.99
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 
-// Work around WezTerm's initial configure bug
 window-rule {
     match app-id=r#"^steam_app_.*"#
     open-floating true
@@ -316,7 +321,7 @@ window-rule {
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
 
-    default-floating-position x=0 y=20 relative-to="bottom-right"
+    default-floating-position x=10 y=20 relative-to="bottom-right"
 }
 
 binds {

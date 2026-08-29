@@ -1,41 +1,32 @@
-Иерархия:
-```
-dotfiles/
-├── flake.nix                    # Точка входа, все inputs
-├── flake.lock
-│
-├── hosts/                       # Конфиги конкретных машин
-│   ├── laptop/                  # Реальная система
-│   │   ├── default.nix          # Главный конфиг хоста
-│   │   ├── hardware.nix         # hardware-configuration.nix
-│   │   └── disk.nix             # Разметка дисков (опционально)
-│   └── vm/                      # Виртуальная машина
-│       ├── default.nix
-│       └── hardware.nix
-│
-├── modules/                     # Переиспользуемые модули
-│   ├── nixos/                   # Системный уровень
-│   │   ├── core.nix             # Базовые настройки (nix, locale, boot)
-│   │   ├── audio.nix            # Pipewire
-│   │   ├── network.nix          # NetworkManager, firewall
-│   │   ├── gaming.nix           # Steam, gamemode, wine
-│   │   ├── niri.nix             # Сессия, greetd, XDG
-│   │   └── security.nix         # Sudo, polkit, pam
-│   │
-│   └── home/                    # Home Manager уровень
-│       ├── core.nix             # Shell, git, nixvim базовые утилиты
-│       ├── stylix.nix           # Тема, шрифты, обои
-│       ├── niri.nix             # Конфиг niri (config.kdl)
-│       ├── noctalia.nix         # Noctalia Shell
-│       ├── zen-browser.nix      # Zen Browser
-│       ├── terminal.nix         # Kitty + fish
-│       ├── gaming.nix           # Heroic, ludusavi и т.п.
-│       └── minecraft.nix        # Prismlauncher
-│
-├── users/                       # Профили пользователей
-│   ├── main.nix                 # Ты — полный профиль
-│   └── guest.nix                # Гостевой — без игр, минимум
-│
-└── lib/                         # Вспомогательные функции
-    └── mkHost.nix               # Хелпер для nixosSystem
-```
+# dotfiles
+
+NixOS + Home Manager + niri, конфиг под flakes.
+
+## Быстрый старт
+    nrs   # sudo nixos-rebuild switch --flake ~/dotfiles#laptop
+    nrb   # ... boot
+    nrt   # ... test
+
+## Структура
+- `hosts/<name>/` — конкретная машина (hardware.nix генерируется, не трогать руками)
+- `modules/nixos/` — системный уровень
+- `modules/home/` — Home Manager уровень, один модуль = одна программа/забота
+- `users/` — профили (main.nix / guest.nix)
+- `lib/` — settings.nix (константы), terminals.nix (реестр терминалов),
+ mkHost.nix (сборка nixosSystem)
+- `assets/` — обои, base16-matugen.yaml (источник для stylix)
+- `secrets/` — agenix, публичные ключи в secrets.nix
+
+## Конвенции
+- Цвета берутся ТОЛЬКО из `assets/base16-matugen.nix`, руками хекс не хардкодить.
+- Терминал переключается через `lib/settings.nix` (`terminal = "foot";`),
+  весь код читает его через `terminals.${settings.terminal}`, а не хардкодит имя бинаря.
+- Для файлов, требующих подстановки переменных (@var@), используется `lib/mkTemplate.nix`.
+
+## TODO
+- вынести bluetooth в отдельный модуль (hosts/laptop/default.nix)
+- разложить wayland.nix по категориям (modules/home/wayland.nix)
+- свести все цвета к палитре + заменой импортировать их в файле (modules/home/config/niri/config.kdl)
+- привести ко одному виду комментарии
+- написать больше пояснительных комментариев
+- настроить другого хоста/юзера

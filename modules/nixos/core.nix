@@ -12,7 +12,35 @@
         "root"
         "@wheel"
       ];
+
+      # Параллелизм
+      max-jobs = "auto";
+      cores = 0;
+
+      # Больше параллельных HTTP-соединений к кэшу — сильно помогает
+      # при высокой задержке (RTT) до сервера, характерной для ДВ
+      http-connections = 50;
+
+      # Устойчивость к нестабильному каналу
+      connect-timeout = 10;
+      stalled-download-timeout = 90;
+      download-attempts = 5;
+      fallback = true;      # если кэш недоступен — собирать локально, не вставать колом
+      keep-going = true;    # не прерывать всю сборку из-за одной ошибки загрузки
+
+      # Кэш метаданных отсутствующих путей — не долбить сервер повторно
+      narinfo-cache-negative-ttl = 3600;
+
+      substituters = [
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
     };
+
     gc = {
       automatic = true;
       dates = "weekly";
