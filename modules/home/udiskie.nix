@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packages = [ pkgs.udisks2 ];
+  home.packages = [pkgs.udisks2];
 
   services.udiskie = {
     enable = true;

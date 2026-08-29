@@ -21,8 +21,6 @@
 
     functions = {
       phone.body = builtins.readFile ./config/fish/functions/phone.fish;
-      driveoff.body = builtins.readFile ./config/fish/functions/driveoff.fish;
-      driveon.body = builtins.readFile ./config/fish/functions/driveon.fish;
     };
   };
 }

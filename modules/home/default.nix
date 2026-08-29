@@ -10,7 +10,6 @@
     ./xdg.nix
     ./waybar.nix
     ./wayland.nix
-    ./wallpaper.nix #~
     ./yazi.nix
     ./gtk.nix
     ./task-manager.nix

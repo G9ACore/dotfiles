@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: let
+{inputs, ...}: let
   # Вспомогательная функция для расширений с Firefox Add-ons
   extension = shortId: guid: {
     name = guid;
@@ -74,13 +71,13 @@ in {
         "extensions.pocket.enabled" = false;
 
         # Для быстрого скроллинга при помощи нажатия колёсика мыши
-	"general.autoScroll" = true;
+        "general.autoScroll" = true;
         # Обязательно для использования userChrome.css
         # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # Чтобы уведомления от браузера не дублировались
         "widget.use-xdg-desktop-portal.notification" = false;
-        
+
         # Пример других удобных опций:
         "browser.tabs.warnOnClose" = false;
         "browser.download.panel.shown" = true;

@@ -67,8 +67,8 @@
     devShells.${system}.default = pkgs.mkShell {
       inherit (self.checks.${system}.pre-commit-check) shellHook;
       buildInputs =
-      [pkgs.alejandra]
-      ++ self.checks.${system}.pre-commit-check.enabledPackages;
+        [pkgs.alejandra]
+        ++ self.checks.${system}.pre-commit-check.enabledPackages;
     };
 
     nixosConfigurations = {
@@ -76,7 +76,7 @@
         hostname = "laptop";
         users = ["dmitry"];
         extraOverlays = [inputs.obsidian-extensions.overlays.default];
-	extraModules = [inputs.nixvim.homeModules.nixvim];
+        extraModules = [inputs.nixvim.homeModules.nixvim];
       };
     };
   };

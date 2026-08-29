@@ -30,7 +30,7 @@ in
           backupFileExtension = "backup";
           extraSpecialArgs = {inherit inputs settings terminals;};
           users = lib.genAttrs users (user: import ../users/${user}.nix);
-	  sharedModules = extraModules;
+          sharedModules = extraModules;
         };
 
         nixpkgs.overlays = extraOverlays;

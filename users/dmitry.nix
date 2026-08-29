@@ -22,5 +22,5 @@
   };
 
   # Убирает навязчивое уведомление при пересборке системы
-  home-manager.users.dmitry.programs.nixvim.nixpkgs.source = pkgs;
+  # home-manager.users.dmitry.programs.nixvim.nixpkgs.source = pkgs;
 }

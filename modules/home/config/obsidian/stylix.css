@@ -1,0 +1,9 @@
+.theme-dark {
+  --background-primary: @base00@;
+  --background-secondary: @base01@;
+  --background-modifier-border: @base03@;
+  --text-normal: @base05@;
+  --text-muted: @base04@;
+  --text-accent: @base0D@;
+  --interactive-accent: @base0D@;
+}

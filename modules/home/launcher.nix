@@ -1,4 +1,9 @@
-{settings, terminals, lib, ...}: let
+{
+  settings,
+  terminals,
+  lib,
+  ...
+}: let
   term = terminals.${settings.terminal};
 in {
   programs.fuzzel = {
