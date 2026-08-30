@@ -3,7 +3,6 @@
     gtk.enable = true;
     qt.enable = true;
 
-    starship.enable = false;
     waybar.enable = false;
     swaync.enable = false;
 

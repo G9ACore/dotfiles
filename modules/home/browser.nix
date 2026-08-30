@@ -10,8 +10,8 @@
 
   extensions = [
     (extension "foxy-proxy" "foxyproxy@eric.h.jung")
-    (extension "bonjourr" "4f391a9e-8717-4ba6-a5b1-488a34931fcb")
-    # Дополнительные расширения добавлять сюда
+    (extension "dark-reader" "4addon@darkreader.org")
+    (extension "adGuard" "adguardadblocker@adguard.com")
   ];
 in {
   # 1. Устанавливаем сам Zen Browser через Home Manager

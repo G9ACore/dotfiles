@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ../modules/home/default.nix
 
@@ -20,7 +15,4 @@
     homeDirectory = lib.mkForce "/home/dmitry";
     stateVersion = "25.05";
   };
-
-  # Убирает навязчивое уведомление при пересборке системы
-  # home-manager.users.dmitry.programs.nixvim.nixpkgs.source = pkgs;
 }

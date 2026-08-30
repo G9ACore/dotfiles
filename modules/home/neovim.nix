@@ -25,6 +25,14 @@
       autoindent = true;
     };
 
+    autoCmd = [
+      {
+        event = "FileType";
+        pattern = "*";
+        command = "setlocal shiftwidth=2 tabstop=2 expandtab";
+      }
+    ];
+
     # Для работы горячих клавиш на русской ракладке
     globalOpts.langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz";
 

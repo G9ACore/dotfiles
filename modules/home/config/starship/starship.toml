@@ -1,20 +1,35 @@
 format = """
-[](fg:@base01@)\
-[  $directory](bg:@base01@ fg:@base05@)\
-[](fg:@base01@ bg:@base02@)\
-[  $git_branch$git_status](bg:@base02@ fg:@base0A@)\
-[](fg:@base02@)
+[](fg:@base02@)\
+[  $directory](bg:@base02@ fg:@base05@)\
+[](fg:@base02@ bg:@base03@)\
+[$git_branch$git_status](bg:@base03@ fg:@base05@)\
+[](fg:@base03@)
 $character"""
 
 [directory]
 style = "bg:@base02@ fg:@base05@"
+truncation_length = 4
+truncate_to_repo = true
+truncation_symbol = "…/"
 
 [git_branch]
-symbol = " "
-style = "bg:@base03@ fg:@base04@"
+symbol = " "
+format = "[ $symbol$branch ]($style)"
+style = "bg:@base03@ fg:@base05@"
 
 [git_status]
+format = "[$all_status$ahead_behind ]($style)"
 style = "bg:@base03@ fg:@base08@"
+conflicted = "="
+ahead = "⇡$count"
+behind = "⇣$count"
+diverged = "⇕⇡$count⇣$count"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
 
 [character]
 success_symbol = "[❯](bold @base0D@)"
