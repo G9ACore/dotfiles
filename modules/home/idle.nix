@@ -13,20 +13,20 @@ in {
 
     timeouts = [
       {
-        timeout = 895; # in seconds
+        timeout = 295;
         command = "${pkgs.libnotify}/bin/notify-send -h boolean:transient:true -t 5000 'Locking in 5 seconds'";
       }
       {
-        timeout = 900;
+        timeout = 300; # 5 минут
         command = lock;
       }
       {
-        timeout = 1000;
+        timeout = 420; # 7 минут
         command = display "off";
         resumeCommand = display "on";
       }
       {
-        timeout = 1800;
+        timeout = 600; # 10 минут
         command = "${pkgs.systemd}/bin/systemctl suspend";
       }
     ];
