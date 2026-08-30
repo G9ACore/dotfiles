@@ -14,7 +14,7 @@
     "tooltip-format-linked": "󱘖 {ifname}: No IP Address",
 
     "on-click": "nm-connection-editor",
-    "on-click-right": "nmcli radio wifi off; nmcli radio wifi on",
+    "on-click-right": "nmcli radio wifi | grep -q 'enabled' && nmcli radio wifi off || nmcli radio wifi on",
 
     "on-scroll-up": "nmcli radio wifi on",
     "on-scroll-down": "nmcli radio wifi off"

@@ -205,7 +205,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-spawn-at-startup "wlunset" "-l" "@latitude@" "-L" "@longitude@" "-t" "@day_t@" "-T" "@night_t@"
+spawn-at-startup "wlsunset" "-l" "@latitude@" "-L" "@longitude@" "-t" "@night_t@" "-T" "@day_t@"
 
 // This line starts swaybg
 spawn-at-startup "swaybg" "-i" "/home/dmitry/.config/wallpaper.jpg" "-m" "fill"
