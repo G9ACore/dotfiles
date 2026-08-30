@@ -2,34 +2,35 @@
   # TODO: Раскидать все приложения по категориям: системные, под NiRi
 
   home.packages = with pkgs; [
-    # Screenshots
+    # Скриншоты
     grim
     slurp
     swappy
 
-    # Clipboard and its utilities
+    # Буфер обмена и его утилиты
     wl-clipboard
     wl-clip-persist
     cliphist
     wlr-randr
 
-    # Wallpaper
+    # Обои
     swaybg
 
-    # Launcher
+    # Лаунчер
     fuzzel
 
-    # Brightness
+    # Ярксоть
     brightnessctl
+    wlsunset
 
-    # Audio
+    # Аудио
     playerctl
     helvum
 
-    # Trash utilite
+    # Утилита мусорки
     trash-cli
 
-    # File/Dirs size viewer
+    # Просмотр размера папок/файлов
     gdu
   ];
 

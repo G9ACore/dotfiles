@@ -1,8 +1,6 @@
 {
   pkgs,
-  inputs,
   config,
-  settings,
   ...
 }: {
   programs.niri = {
@@ -15,8 +13,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${config.programs.niri.package}/bin/niri-session";
-        user = settings.primaryUser;
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-user-session --cmd ${config.programs.niri.package}/bin/niri-session";
       };
     };
   };

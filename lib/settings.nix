@@ -1,18 +1,16 @@
-# ~/dotfiles/lib/settings.nix
-# Единственный источник правды для "личных" констант конфига:
-# имя пользователя, таймзона, выбор терминала и т.п.
-#
-# Меняешь значение здесь — оно расходится по всем модулям, которые
-# его читают через specialArgs.settings (см. lib/mkHost.nix).
-#
-# ВАЖНО: terminal должен быть валидным ключом из lib/terminals.nix,
-# иначе builtins.replaceStrings в местах, где терминал подставляется
-# текстом (fuzzel.ini, niri config.kdl, xdg.nix), просто ничего не заменит.
 {
   primaryUser = "dmitry";
-
   timeZone = "Asia/Anadyr";
 
   # alacritty | wezterm | foot — см. lib/terminals.nix
   terminal = "foot";
+
+  # Настройка wlsunset для автоматического изменения якрости/температуры дисплея
+  wlsnt = {
+    latitude = 64.4; # Широта
+    longitude = 173.2; # Долгота
+
+    day_t = 4000; # Температура дисплея днём
+    night_t = 6500; # Температура дисплея ночью
+  };
 }

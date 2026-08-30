@@ -1,0 +1,16 @@
+{
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip-format": "Brightness: {percent}%",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "backlight/slider": {
+    "min": 5,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+  }
+}
