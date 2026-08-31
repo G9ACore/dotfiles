@@ -79,9 +79,15 @@
   # Bootloader
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10; # сколько поколений показывать в списке
+        consoleMode = "max"; # или "keep" — влияет на разрешение текста меню
+      };
       efi.canTouchEfiVariables = true;
+      timeout = 0; # не показывать меню вообще, грузить дефолт сразу
     };
+
     kernelParams = ["quiet" "systemd.show_status=false" "rd.systemd.show_status=false" "rd.udev.log_level=3"];
 
     consoleLogLevel = 3;

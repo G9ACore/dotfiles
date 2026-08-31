@@ -78,11 +78,11 @@
           timeout_ms = 500;
           lsp_fallback = true;
         };
-      };
-      formatters_by_ft = {
-        nix = ["alejandra"];
-        lua = ["stylua"];
-        python = ["black"];
+        formatters_by_ft = {
+          nix = ["alejandra"];
+          lua = ["stylua"];
+          python = ["black"];
+        };
       };
     };
 
