@@ -1,7 +1,7 @@
 {
   "custom/distro": {
     "format": "",
-    "on-click": "wlogout",
+    "on-click": "pkill wlogout || wlogout",
     "tooltip": false
   },
 

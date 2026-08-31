@@ -12,11 +12,6 @@
   padding: 0 10px;
 }
 
-#custom-code {
-  color: #89b4fa;
-  padding: 0 10px;
-}
-
 #custom-office {
   color: #ff6f4c;
   padding: 0 10px;
@@ -32,11 +27,6 @@
   padding: 0 10px 0 8px;
 }
 
-#custom-spotify {
-  color: #1db954;
-  padding: 0 10px;
-}
-
 #custom-browser {
   color: #fab387;
   padding: 0 15px 0 10px;
@@ -45,6 +35,7 @@
 #distro-group,
 #power-profiles-daemon,
 #idle_inhibitor,
+#brightness,
 #audio,
 #connections,
 #system,
@@ -68,9 +59,18 @@
   padding: 0 10px 0 4px;
 }
 
+#brightness {
+  margin-right: 12px;
+}
+
+#backlight {
+  margin-left: 8px;
+  margin-right: 4px;
+  padding: 0 4px;
+}
+
 #pulseaudio {
   margin-right: 12px;
-  margin-left: 8px;
 }
 
 /* ===== TRAY ===== */
