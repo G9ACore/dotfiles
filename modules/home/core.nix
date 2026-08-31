@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Base-user packages
   home.packages = with pkgs; [
     ripgrep
@@ -17,8 +13,6 @@
     lsof
 
     glib
-
-    python3
   ];
 
   programs.home-manager.enable = true;

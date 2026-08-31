@@ -12,6 +12,7 @@
     ./wayland.nix
     ./yazi.nix
     ./gtk.nix
+    ./direnv.nix
     ./task-manager.nix
     ./launcher.nix
     ./wlogout.nix

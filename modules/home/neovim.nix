@@ -73,7 +73,13 @@
     # --- Форматирование (alejandra для .nix — как в твоём devShell) ---
     plugins.conform-nvim = {
       enable = true;
-      settings.formatters_by_ft = {
+      settings = {
+        format_on_save = {
+          timeout_ms = 500;
+          lsp_fallback = true;
+        };
+      };
+      formatters_by_ft = {
         nix = ["alejandra"];
         lua = ["stylua"];
         python = ["black"];
