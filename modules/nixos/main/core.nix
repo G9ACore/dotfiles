@@ -96,6 +96,11 @@
     supportedFilesystems = ["ext4" "exfat" "ntfs"];
   };
 
+  boot.kernelModules = ["tcp_bbr" "sch_cake"];
+  boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
+  boot.kernel.sysctl."net.core.default_qdisc" = "cake";
+  boot.kernel.sysctl."net.ipv4.tcp_slow_start_after_idle" = 0;
+
   # Swap for more "RAM"
   zramSwap = {
     enable = true;

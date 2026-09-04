@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
@@ -12,6 +8,8 @@
       "obsidian"
 
       "unrar"
+
+      "davinci-resolve"
 
       "nvidia-x11"
       "nvidia-settings"

@@ -3,5 +3,7 @@
     onlyoffice-desktopeditors
 
     teamspeak6-client
+
+    davinci-resolve
   ];
 }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   # Enable KDE Connect service/daemon
   programs.kdeconnect.enable = true;
 

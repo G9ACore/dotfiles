@@ -1,22 +1,10 @@
 {...}: {
   imports = [
     ./hardware.nix
-    ../../modules/nixos/default.nix
+    ../../modules/nixos/main/default.nix
 
     # Хост-специфичные модули
-    ../../modules/nixos/gaming.nix
-    ../../modules/nixos/niri.nix
-    ../../modules/nixos/stylix.nix
-    ../../modules/nixos/vpn.nix
-    ../../modules/nixos/power.nix
-    ../../modules/nixos/kdeconnect.nix
-    ../../modules/nixos/security.nix
-    ../../modules/nixos/nvidia.nix
-    ../../modules/nixos/shell.nix
-    ../../modules/nixos/xdg.nix
-    ../../modules/nixos/secrets.nix
-    ../../modules/nixos/unfree.nix
-    ../../modules/nixos/team-comms.nix
+    ../../modules/nixos/additional/default.nix
   ];
 
   networking.hostName = "G9ACore";

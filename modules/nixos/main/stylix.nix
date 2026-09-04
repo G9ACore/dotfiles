@@ -12,7 +12,7 @@
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
-    image = ../../assets/wallpapers/wallpaper.jpg; # обои — используются также swaybg-модулем
+    image = ../../../assets/wallpapers/wallpaper.jpg; # обои — используются также swaybg-модулем
 
     polarity = "dark";
 
