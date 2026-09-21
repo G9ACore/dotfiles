@@ -19,6 +19,7 @@
     ./swaync.nix
     ./stylix.nix
     ./neovim.nix
+    ./videoplayer.nix
     ./hide-desktop-entries.nix
     ./udiskie.nix
   ];

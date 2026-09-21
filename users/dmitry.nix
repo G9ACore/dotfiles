@@ -4,7 +4,7 @@
 
     ../modules/home/gaming.nix
     ../modules/home/minecraft.nix
-    ../modules/home/aliases.nix
+    ../modules/home/shell.nix
     ../modules/home/obsidian.nix
     ../modules/home/development.nix
     ../modules/home/packages.nix

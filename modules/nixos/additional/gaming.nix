@@ -6,6 +6,7 @@
       proton-ge-bin
     ];
 
+    localNetworkGameTransfers.openFirewall = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
 

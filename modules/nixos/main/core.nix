@@ -17,14 +17,14 @@
       max-jobs = "auto";
       cores = 0;
 
-      # Больше параллельных HTTP-соединений к кэшу — сильно помогает
       # при высокой задержке (RTT) до сервера, характерной для ДВ
-      http-connections = 50;
+      http-connections = 2;
 
       # Устойчивость к нестабильному каналу
-      connect-timeout = 10;
-      stalled-download-timeout = 90;
-      download-attempts = 5;
+      connect-timeout = 15;
+      compress-build-log = true;
+      stalled-download-timeout = 300;
+      download-attempts = 10;
       fallback = true; # если кэш недоступен — собирать локально, не вставать колом
       keep-going = true; # не прерывать всю сборку из-за одной ошибки загрузки
 
@@ -33,13 +33,13 @@
 
       substituters = [
         "https://cache.nixos.org"
-        "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
+
+    optimise.automatic = true;
 
     gc = {
       automatic = true;
@@ -68,10 +68,12 @@
   # Base system packages
   environment.systemPackages = with pkgs; [
     wget
+    aria2
     curl
     file
     unzip
     neovim
+    ethtool
     pciutils # lspci
     usbutils # lsusb
   ];
@@ -96,10 +98,25 @@
     supportedFilesystems = ["ext4" "exfat" "ntfs"];
   };
 
-  boot.kernelModules = ["tcp_bbr" "sch_cake"];
-  boot.kernel.sysctl."net.ipv4.tcp_congestion_control" = "bbr";
-  boot.kernel.sysctl."net.core.default_qdisc" = "cake";
-  boot.kernel.sysctl."net.ipv4.tcp_slow_start_after_idle" = 0;
+  boot.kernel.sysctl = {
+    # Включаем TCP BBR
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+
+    # Оптимизация TCP-стека для слабого интернета
+    "net.ipv4.tcp_slow_start_after_idle" = 0; # Не замедляться после паузы
+    "net.ipv4.tcp_mtu_probing" = 1; # Автоматическая подстройка MTU
+    "net.ipv4.tcp_fastopen" = 3; # Ускорение установки соединений
+    "net.core.rmem_max" = 16777216; # Увеличить буферы приёма
+    "net.core.wmem_max" = 16777216; # Увеличить буферы передачи
+    "net.ipv4.tcp_rmem" = "4096 87380 16777216";
+    "net.ipv4.tcp_wmem" = "4096 65536 16777216";
+    "net.ipv4.tcp_window_scaling" = 1; # Масштабирование окна TCP
+    "net.ipv4.tcp_timestamps" = 1; # Временные метки для PAWS
+    "net.ipv4.tcp_sack" = 1; # Selective ACK для быстрого восстановления
+    "net.ipv4.tcp_fack" = 1; # Forward ACK
+    "net.ipv4.tcp_ecn" = 1; # Explicit Congestion Notification
+  };
 
   # Swap for more "RAM"
   zramSwap = {

@@ -21,6 +21,7 @@
 
     functions = {
       phone.body = builtins.readFile ./config/fish/functions/phone.fish;
+      net-ping.body = builtins.readFile ./config/fish/functions/net-ping.fish;
     };
   };
 }

@@ -70,6 +70,25 @@ in {
         "extensions.autoDisableScopes" = 0;
         "extensions.pocket.enabled" = false;
 
+        # --- Оптимизация для слабого интернета ---
+        "network.prefetch-next" = false; # Отключить предзагрузку ссылок
+        "network.dns.disablePrefetch" = true; # Отключить предзагрузку DNS
+        "network.http.keep-alive.timeout" = 300; # Держать соединение открытым дольше (5 мин)
+        "browser.sessionstore.interval" = 600000; # Автосохранение сессии раз в 10 мин (экономия I/O)
+        "media.autoplay.default" = 5; # Блокировать автозапуск аудио/видео
+
+        # --- Дополнительные твики для экономии трафика ---
+        "image.animation_mode" = "none"; # Отключить анимацию GIF (экономит трафик и CPU)
+        "browser.cache.disk.enable" = true; # Включить кэш на диск
+        "browser.cache.disk.max_entry_size" = 50000; # Макс размер кэшируемого файла 50 МБ
+        "browser.cache.memory.enable" = true; # Кэш в ОЗУ
+        "browser.cache.memory.capacity" = 65536; # 64 МБ кэша в ОЗУ
+
+        # --- Отключение телеметрии и лишнего фона ---
+        "browser.safebrowsing.malware.enabled" = false; # Отключить Google SafeBrowsing (тратит трафик)
+        "browser.safebrowsing.phishing.enabled" = false;
+        "toolkit.telemetry.enabled" = false;
+
         # Для быстрого скроллинга при помощи нажатия колёсика мыши
         "general.autoScroll" = true;
         # Обязательно для использования userChrome.css
