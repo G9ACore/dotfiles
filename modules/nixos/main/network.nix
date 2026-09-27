@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   networking = {
     networkmanager.enable = true;
     firewall = {
@@ -29,10 +25,6 @@
     iptables -t mangle -A OUTPUT -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
   '';
 
-  #services.udev.extraRules = ''
-  #  ACTION=="add", SUBSYSTEM=="net", NAME=="enp5s0", RUN+="${pkgs.ethtool}/bin/ethtool -K enp5s0 tso off gso off gro off lro off"
-  #'';
-  # mDNS — чтобы находить устройства в локалке по имени
   services.avahi = {
     enable = true;
     nssmdns4 = true;
