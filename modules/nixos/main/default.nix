@@ -2,7 +2,6 @@
   imports = [
     ./audio.nix
     ./core.nix
-    ./drives.nix
     ./fonts.nix
     ./mtp.nix
     ./network.nix

@@ -20,17 +20,17 @@
   # security.sudo.wheelNeedsPassword = false;
 
   # Polkit — авторизация GUI приложений
-  security.polkit = {
-    enable = true;
-    extraConfig = ''
-      polkit.addRule(function(action, subject) {
-        if (action.id.indexOf("org.freedesktop.udisks2.") == 0 &&
-            subject.isInGroup("wheel")) {
-          return polkit.Result.YES;
-        }
-      });
-    '';
-  };
+  security.polkit.enable = true;
+
+  # Разрешить монтирование без пароля
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
+          action.id == "org.freedesktop.udisks2.filesystem-mount") {
+        return polkit.Result.YES;
+      }
+    });
+  '';
   # Keyring — хранение паролей (нужен для некоторых приложений)
   # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.greetd.enableGnomeKeyring = true;
