@@ -1,7 +1,7 @@
 [[mgr.prepend_keymap]]
 on = "e"
 run = 'shell --block -- gdu %s'
-desc = "Размер папки"
+desc = "Интерактивно посмотреть размер папок (gdu)"
 
 [[mgr.prepend_keymap]]
 on = "y"
@@ -10,4 +10,3 @@ run = [
     "yank"
 ]
 desc = "Yank как URI"
-

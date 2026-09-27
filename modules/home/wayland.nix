@@ -32,6 +32,8 @@
 
     # Просмотр размера папок/файлов
     gdu
+
+    imv
   ];
 
   xdg.configFile."swappy/config".source = ./config/swappy/config;

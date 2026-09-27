@@ -1,6 +1,6 @@
 # ~/.config/swappy/config
 [Default]
-save_dir=$HOME/pics/Screenshots
+save_dir=$HOME/Pictures/Screenshots
 save_filename_format=swappy-%Y%m%d-%H%M%S.png
 show_panel=true
 line_size=5

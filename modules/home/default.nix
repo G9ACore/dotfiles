@@ -22,5 +22,6 @@
     ./videoplayer.nix
     ./hide-desktop-entries.nix
     ./udiskie.nix
+    ./zoxide.nix
   ];
 }

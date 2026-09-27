@@ -1,22 +1,38 @@
-echo "args: $*" >> /tmp/yazi-chooser.log
+#!/usr/bin/env bash
+# Wrapper для xdg-desktop-portal-termfilechooser + Yazi
+# Аргументы от termfilechooser:
+#   $1 - multiple  (0/1)
+#   $2 - directory (0/1)
+#   $3 - save      (0/1)
+#   $4 - path      (предложенный путь/директория)
+#   $5 - out       (файл, куда записать результат)
 
-out=""
-dir=""
-for a in "$@"; do
-  if [ -z "$out" ] && [ "${a#/}" != "$a" ] && [ ! -d "$a" ]; then
-    out="$a"
-  elif [ -d "$a" ]; then
-    dir="$a"
-  fi
-done
-dir="${dir:-$HOME}"
+multiple="$1"
+directory="$2"
+save="$3"
+path="$4"
+out="$5"
 
-export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-wayland-1}"
+# Очистить выходной файл
+: > "$out"
 
-tmp="$(mktemp)"
-# The line below must be configured manually depending on the selected terminal
-@terminal@ --app-id=yazi-picker -e @yazi@ "$dir" --chooser-file="$tmp"
-if [ -s "$tmp" ] && [ -n "$out" ]; then
-  cp "$tmp" "$out"
+# Собрать аргументы для Yazi
+yazi_args=()
+yazi_args+=(--chooser-file="$out")
+
+# Если сохранение — можно добавить подсказку через имя файла
+if [ "$save" = "1" ]; then
+    # Yazi не имеет нативного "save dialog",
+    # но --chooser-file работает и для выбора пути
+    :
 fi
-rm -f "$tmp"
+
+# Запустить Yazi в терминале (замените foot на ваш терминал)
+@terminal@ --app-id=yazi-chooser -- yazi "${yazi_args[@]}" "$path"
+
+# Проверить, что файл не пуст (пользователь что-то выбрал)
+if [ ! -s "$out" ]; then
+    exit 1  # Отмена
+fi
+
+exit 0
