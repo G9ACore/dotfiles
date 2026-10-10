@@ -16,7 +16,7 @@
 in {
   # 1. Устанавливаем сам Zen Browser через Home Manager
   imports = [
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight-official
   ];
 
   # (Home Manager умеет генерировать policies.json в ~/.mozilla/native-messaging-hosts или профиле)
@@ -30,7 +30,7 @@ in {
       ExtensionSettings = builtins.listToAttrs extensions;
 
       SearchEngines = {
-        Default = "Google";
+        Default = "DuckDuckGo";
         Add = [
           {
             Name = "nixpkgs packages";
