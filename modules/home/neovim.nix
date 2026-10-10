@@ -7,6 +7,7 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    nixpkgs.source = pkgs.path;
 
     globalOpts = {
       number = true;
