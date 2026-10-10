@@ -4,10 +4,6 @@
 
     teamspeak6-client
 
-    davinci-resolve
-
     wayvnc
-
-    komikku
   ];
 }
