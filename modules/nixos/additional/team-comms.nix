@@ -4,6 +4,4 @@
     enable = false;
     openFirewall = false; # сам откроет нужные UDP/TCP порты
   };
-
-  services.teamviewer.enable = true;
 }
