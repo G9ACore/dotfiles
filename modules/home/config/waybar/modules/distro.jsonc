@@ -31,7 +31,7 @@
 
   "custom/browser": {
     "format": "",
-    "on-click": "zen-beta",
+    "on-click": "zen-twilight",
     "tooltip": false
   }
 }
