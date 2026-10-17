@@ -22,11 +22,11 @@
   # Polkit — авторизация GUI приложений
   security.polkit.enable = true;
 
-  # Разрешить монтирование без пароля
+  # Разрешаем монтирование без пароля через polkit
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
-      if (action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
-          action.id == "org.freedesktop.udisks2.filesystem-mount") {
+      if (action.id.indexOf("org.freedesktop.udisks2.") === 0 &&
+          subject.isInGroup("users")) {
         return polkit.Result.YES;
       }
     });

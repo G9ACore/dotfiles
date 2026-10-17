@@ -20,8 +20,8 @@
     ./stylix.nix
     ./neovim.nix
     ./videoplayer.nix
-    ./hide-desktop-entries.nix
     ./udiskie.nix
+    ./hide-desktop-entries.nix
     ./zoxide.nix
   ];
 }
