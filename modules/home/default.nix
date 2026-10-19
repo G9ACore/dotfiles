@@ -7,6 +7,7 @@
     ./terminal.nix
     ./browser.nix
     ./niri.nix
+    ./quickshell.nix
     ./xdg.nix
     ./waybar.nix
     ./wayland.nix

@@ -2,13 +2,10 @@
   programs.fish = {
     enable = true;
 
-    shellAliases = {
-      python = "python3";
-    };
+    # python3 уже есть в PATH из nixpkgs — алиас «python = python3» не нужен.
 
     shellAbbrs = {
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#laptop";
-      # nrsvm = "nixos-rebuild switch --flake ~/dotfiles#vm";
       nrb = "sudo nixos-rebuild boot --flake ~/dotfiles#laptop";
       nrt = "sudo nixos-rebuild test --flake ~/dotfiles#laptop";
 

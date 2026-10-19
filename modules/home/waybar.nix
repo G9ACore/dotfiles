@@ -32,24 +32,20 @@
     cp ${stateCss}  $out/tokens/state.css
   '';
 in {
+  # waybar выключен: панель рисует quickshell (modules/home/quickshell.nix).
+  # Конфиги waybar сохранены в modules/home/config/waybar — можно вернуть в любой момент.
+  programs.waybar = {
+    enable = false;
+    systemd.enable = false;
+  };
+
   home.packages = with pkgs; [
-    waybar
     pavucontrol
     networkmanagerapplet
     blueman
     swaynotificationcenter
     power-profiles-daemon
   ];
-
-  programs.waybar = {
-    enable = true;
-    systemd = {
-      enable = true;
-      targets = ["graphical-session.target"];
-    };
-  };
-
-  # home.packages, programs.waybar — без изменений
 
   xdg.configFile."waybar" = {
     source = waybarConfig;
