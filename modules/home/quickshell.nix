@@ -46,16 +46,17 @@
   shellQml = render ./quickshell/shell.qml.tpl alphaVars;
 
   # Виджеты лежат в modules/home/quickshell/widgets; каждый .qml.tpl — шаблон с @baseXX@.
-  widgetTplNames = filter (f: builtins.match ".*\\.qml\\.tpl" f != null)
+  widgetTplNames =
+    filter (f: builtins.match ".*\\.qml\\.tpl" f != null)
     (builtins.attrNames (builtins.readDir widgetsDir));
 
   widgetFiles =
     builtins.map
-      (f: {
-        name = builtins.replaceStrings [".qml.tpl"] [".qml"] f;
-        text = render (widgetsDir + "/${f}") alphaVars;
-      })
-      widgetTplNames
+    (f: {
+      name = builtins.replaceStrings [".qml.tpl"] [".qml"] f;
+      text = render (widgetsDir + "/${f}") alphaVars;
+    })
+    widgetTplNames
     # qmldir.tpl -> qmldir (обязателен для singleton'ов Palette/NiriEvents)
     ++ [
       {
@@ -63,27 +64,39 @@
         text = render (widgetsDir + "/qmldir.tpl") alphaVars;
       }
     ];
-
 in {
   # quickshell сам по себе — Qt6/QML-приложение, конфиг кладём в
-  # $XDG_CONFIG_HOME/quickshell (qs без -c ищет shell.qml именно там).
+  # \$XDG_CONFIG_HOME/quickshell (qs без -c ищет shell.qml именно там).
   home.packages = with pkgs; [
     quickshell # пакет из nixpkgs; бин `qs`
     jq # разбор вывода `niri msg` в JSON
     procps # free/uptime для виджета system
   ];
 
-  xdg.configFile."quickshell/shell.qml".text = shellQml;
+  # Объединяем статические файлы и динамические виджеты в один набор xdg.configFile
+  xdg.configFile =
+    {
+      # 1. Статические файлы конфигурации
+      "quickshell/shell.qml".text = shellQml;
 
-  xdg.configFile."quickshell/widgets" = {
-    source = pkgs.linkFarm "qs-widgets" widgetFiles;
-    recursive = true;
-  };
-
-  # Быстрый дебаг: `touch ~/.config/quickshell/.watch` — qs перезагрузит конфиг
-  # без рестарта процесса (см. Quickshell.watcherEnabled). Файл пустой, его
-  # наличие ничего не включает само по себе — это просто метка для watch-режима.
-  xdg.configFile."quickshell/.watch".text = "";
+      # Быстрый дебаг: `touch ~/.config/quickshell/.watch` — qs перезагрузит конфиг
+      # без рестарта процесса (см. Quickshell.watcherEnabled).
+      "quickshell/.watch".text = "";
+    }
+    // builtins.listToAttrs (
+      # 2. Динамически генерируемые файлы виджетов
+      builtins.map (f: {
+        name = "quickshell/widgets/" + (builtins.replaceStrings [".qml.tpl"] [".qml"] f);
+        value = {text = render (widgetsDir + "/${f}") alphaVars;};
+      })
+      widgetTplNames
+      ++ [
+        {
+          name = "quickshell/widgets/qmldir";
+          value = {text = render (widgetsDir + "/qmldir.tpl") alphaVars;};
+        }
+      ]
+    );
 
   # Запуск панели — через spawn-at-startup в конфиге niri (см.
   # modules/home/config/niri/config.kdl). Systemd-юнит выключен, чтобы
@@ -97,7 +110,7 @@ in {
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.quickshell}/bin/qs";
+      ExecStart = "\${pkgs.quickshell}/bin/qs";
       Restart = "on-failure";
       RestartSec = 2;
     };
