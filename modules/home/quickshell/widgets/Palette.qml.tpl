@@ -30,7 +30,7 @@ QtObject {
     readonly property int pillHeight: 34
     readonly property int pillRadius: 17
     readonly property int pillHPad: 12
-    readonly property string fontFamily: "JetBrainsMono Nerd Font"
+    readonly property string fontFamily: "JetBrainsMono Nerd Font Mono"
     readonly property int iconSize: 16
     readonly property int fontSize: 11
 }
