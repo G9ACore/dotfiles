@@ -215,6 +215,9 @@ spawn-at-startup "wlsunset" "-l" "@latitude@" "-L" "@longitude@" "-t" "@night_t@
 spawn-at-startup "swaybg" "-i" "/home/dmitry/.config/wallpaper.jpg" "-m" "fill"
 spawn-at-startup "xwayland-satellite"
 
+// Панель quickshell (конфиг: ~/.config/quickshell/shell.qml, см. modules/home/quickshell.nix)
+spawn-sh-at-startup "exec qs"
+
 // For work clipboard
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "wl-clip-persist" "--clipboard" "both"
@@ -279,9 +282,9 @@ animations {
     // slowdown 3.0
 }
 
-// Чтобы бар корректно отображался со скруглениям
+// Чтобы панель корректно отображалась со скруглениями/прозрачностью
 layer-rule {
-    match namespace="waybar"
+    match namespace="^quickshell$"
     opacity 0.99
 }
 

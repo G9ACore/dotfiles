@@ -1,23 +1,32 @@
-{inputs, ...}: {
-  environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default];
+{
+  inputs,
+  pkgs,
+  settings,
+  ...
+}: {
+  environment.systemPackages = [inputs.agenix.packages.${pkgs.system}.default];
 
+  # Пароль нужен всегда: NOPASSWD-исключения — только для явного whitelist ниже.
+  security.sudo.wheelNeedsPassword = true;
+
+  # Whitelist: пользователю разрешены ТОЛЬКО эти команды без пароля
+  # (нужно для кнопок выключения/перезагрузки в wlogout).
   security.sudo.extraRules = [
     {
-      users = ["dmitry"];
+      users = [settings.primaryUser];
+      runAs = "root";
       commands = [
         {
-          command = "/run/current-system/sw/bin/systemctl poweroff";
+          command = "${pkgs.systemd}/bin/systemctl poweroff";
           options = ["NOPASSWD"];
         }
         {
-          command = "/run/current-system/sw/bin/systemctl reboot";
+          command = "${pkgs.systemd}/bin/systemctl reboot";
           options = ["NOPASSWD"];
         }
       ];
     }
   ];
-  # Sudo без пароля для wheel (опционально, удобно)
-  # security.sudo.wheelNeedsPassword = false;
 
   # Polkit — авторизация GUI приложений
   security.polkit.enable = true;
@@ -31,6 +40,11 @@
       }
     });
   '';
+
+  # Wake-on-LAN по умолчанию выключен: пакет-«будильник» не должен
+  # дистанционно включать машину без ведома владельца.
+  # (TLP в конфиге отключён — если включите его позже, проверьте ENABLE_WAKE_ON_AC)
+  powerManagement.powertoolEnable = false;
   # Keyring — хранение паролей (нужен для некоторых приложений)
   # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.greetd.enableGnomeKeyring = true;

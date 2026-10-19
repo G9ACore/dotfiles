@@ -33,9 +33,13 @@
 
       substituters = [
         "https://cache.nixos.org"
+        # Кэш nix-community: готовые бинарники для пакетов из экосистемы
+        # nix-community (stylix, nixvim, home-manager и др.) — меньше сборок локально
+        "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+rkFc3xNQfkYOZU="
       ];
     };
 

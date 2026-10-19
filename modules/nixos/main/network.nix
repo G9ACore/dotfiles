@@ -19,7 +19,7 @@
       allowedUDPPorts = [4380 27031 27036];
     };
 
-    nameservers = ["1.1.1.1" "9.9.9.9" "127.0.0.1"];
+    nameservers = ["1.1.1.1" "9.9.9.9"]; # 127.0.0.1 здесь не нужен: systemd-resolved сам подставит себя в resolv.conf
   };
   networking.firewall.extraCommands = ''
     iptables -t mangle -A OUTPUT -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
