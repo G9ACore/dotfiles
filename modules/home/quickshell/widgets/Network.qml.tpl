@@ -41,10 +41,10 @@ Pill {
             root.signal = parseInt(p[2]) || 0;
             root.btOn = p[3] === "yes";
         }}
-        onExited: refreshTimer.restart()
+        onExited: refreshTimer.start()
     }
 
-    Timer { id: refreshTimer; interval: 5000; onTriggered: Qt.callLater(() => probe.running = true) }
+    Timer { id: refreshTimer; interval: 5000; onTriggered: probe.restart() }
 
     function wifiIcon() {
         if (root.netState === "disabled") return "󰤮";

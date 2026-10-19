@@ -20,13 +20,13 @@ Pill {
         stdout: SplitParser { onReady: line => {
             root.inhibited = line.trim() === "yes";
         }}
-        // Process завершается сам (разовая команда); перезапуск — по таймеру.
-        // running НЕ сбрасываем вручную: свойство байндится к true, ручное
-        // присваивание игнорируется/ломает байндиг.
-        onExited: refreshTimer.restart()
+        // Process завершается сам (разовая команда); перезапуск — по таймеру
+        // через Process.restart() (running забайнжено на true, ручное
+        // присваивание игнорируется/ломает байндиг).
+        onExited: refreshTimer.start()
     }
 
-    Timer { id: refreshTimer; interval: 10000; onTriggered: Qt.callLater(() => probe.running = true) }
+    Timer { id: refreshTimer; interval: 10000; onTriggered: probe.restart() }
 
     Segment {
         icon: root.inhibited ? "󰛨" : "󰛩"

@@ -216,7 +216,7 @@ spawn-at-startup "swaybg" "-i" "/home/dmitry/.config/wallpaper.jpg" "-m" "fill"
 spawn-at-startup "xwayland-satellite"
 
 // Панель quickshell (конфиг: ~/.config/quickshell/shell.qml, см. modules/home/quickshell.nix)
-spawn-sh-at-startup "exec qs"
+spawn-at-startup "qs"
 
 // For work clipboard
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"

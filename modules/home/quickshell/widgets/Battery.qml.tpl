@@ -26,10 +26,10 @@ Pill {
             root.capacity = parseInt(p[0]);
             root.charging = p[1] === "Charging";
         }}
-        onExited: refreshTimer.restart()
+        onExited: refreshTimer.start()
     }
 
-    Timer { id: refreshTimer; interval: 60000; onTriggered: Qt.callLater(() => probe.running = true) }
+    Timer { id: refreshTimer; interval: 60000; onTriggered: probe.restart() }
 
     function iconFor() {
         if (root.charging) return "󱐌";
