@@ -44,10 +44,10 @@ Pill {
             root.tempC = Number(parts[1]) || 0;
         }}
 
-        onExited: recheckTimer.restart()
+        onExited: recheckTimer.start()
     }
 
-    Timer { id: recheckTimer; interval: 8000; onTriggered: Qt.callLater(() => poll.running = true) }
+    Timer { id: recheckTimer; interval: 8000; onTriggered: poll.restart() }
 
     Segment {
         icon: "󰻠"

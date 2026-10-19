@@ -31,8 +31,6 @@ RoundRectangle {
 
         Row {
             id: row
-            leftPadding: 0
-            rightPadding: 0
             spacing: 8
         }
     }

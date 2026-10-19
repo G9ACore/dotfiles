@@ -25,10 +25,10 @@ Pill {
             root.muted = sinkPart.includes("[MUTED]");
             root.micMuted = srcPart.includes("[MUTED]");
         }}
-        onExited: refreshTimer.restart()
+        onExited: refreshTimer.start()
     }
 
-    Timer { id: refreshTimer; interval: 2000; onTriggered: Qt.callLater(() => probe.running = true) }
+    Timer { id: refreshTimer; interval: 2000; onTriggered: probe.restart() }
 
     function iconFor() {
         if (root.muted) return "󰝟";

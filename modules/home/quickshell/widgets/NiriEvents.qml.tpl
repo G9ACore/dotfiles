@@ -5,10 +5,14 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import QtQuick.Templates as T
 
-QtObject {
+// ВАЖНО: у QtObject нет default property — нельзя класть Process внутрь
+// фигурных скобок. Поэтому состояние храним в Item, а процесс — в его children.
+Item {
     id: root
+    visible: false
+    width: 0
+    height: 0
 
     // ── Состояние ─────────────────────────────────────────────────────────
     property var workspaces: []           // массив объектов workspace из события
@@ -24,8 +28,7 @@ QtObject {
         running: true
 
         stdout: SplitParser {
-            splitKeep: ["\n"]
-            // Каждое событие — одна JSON-строка.
+            // Каждое событие — одна JSON-строка (стрим построчный).
             onReady: line => {
                 try {
                     var ev = JSON.parse(line);
@@ -34,10 +37,13 @@ QtObject {
             }
         }
 
-        // Стрим живёт, пока работает niri; при падении qs перезапустится сам
-        // через spawn-at-startup. Перезапуск изнутри не делаем: running —
-        // байндиг-свойство Process, ручное присваивание игнорируется.
+        // Если стример упал (niri перезапустился и т.п.) — переподключаемся.
+        // Перезапуск строго через restart(): running забайнжено на true,
+        // ручное присваивание игнорируется/ломает байндиг.
+        onExited: restartTimer.start()
     }
+
+    Timer { id: restartTimer; interval: 2000; onTriggered: eventStream.restart() }
 
     function onEvent(ev) {
         root.niriUp = true;
@@ -50,11 +56,13 @@ QtObject {
                     root.activeWsId = w["workspaces"][i]["id"];
                 }
             }
-        } else if (ev["FocusedWindow"]) {
-            var f = ev["FocusedWindow"];
-            if (f["window"]) {
-                root.focusedTitle = f["window"]["title"] ?? "";
-                root.focusedAppId = f["window"]["app-id"] ?? "";
+        } else if (ev["WindowFocus"]) {
+            // niri event stream: "WindowFocus" = сфокусированное окно
+            // (null, если фокуса нет). Ключ "FocusedWindow" не существует.
+            var f = ev["WindowFocus"];
+            if (f) {
+                root.focusedTitle = f["title"] ?? "";
+                root.focusedAppId = f["app-id"] ?? "";
             } else {
                 root.focusedTitle = "";
                 root.focusedAppId = "";
