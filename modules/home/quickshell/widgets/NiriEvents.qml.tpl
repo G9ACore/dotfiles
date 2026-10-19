@@ -24,8 +24,7 @@ QtObject {
         running: true
 
         stdout: SplitParser {
-            splitKeep: ["\n"]
-            // Каждое событие — одна JSON-строка.
+            // Каждое событие — одна JSON-строка (стрим построчный).
             onReady: line => {
                 try {
                     var ev = JSON.parse(line);
@@ -50,11 +49,13 @@ QtObject {
                     root.activeWsId = w["workspaces"][i]["id"];
                 }
             }
-        } else if (ev["FocusedWindow"]) {
-            var f = ev["FocusedWindow"];
-            if (f["window"]) {
-                root.focusedTitle = f["window"]["title"] ?? "";
-                root.focusedAppId = f["window"]["app-id"] ?? "";
+        } else if (ev["WindowFocus"]) {
+            // niri event stream: "WindowFocus" = сфокусированное окно
+            // (null, если фокуса нет). Ключ "FocusedWindow" не существует.
+            var f = ev["WindowFocus"];
+            if (f) {
+                root.focusedTitle = f["title"] ?? "";
+                root.focusedAppId = f["app-id"] ?? "";
             } else {
                 root.focusedTitle = "";
                 root.focusedAppId = "";

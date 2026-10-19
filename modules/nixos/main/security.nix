@@ -11,6 +11,8 @@
 
   # Whitelist: пользователю разрешены ТОЛЬКО эти команды без пароля
   # (нужно для кнопок выключения/перезагрузки в wlogout).
+  # Пути абсолютные и канонические для NixOS (/run/current-system — symlink на
+  # активную генерацию, поэтому переживает nixos-rebuild).
   security.sudo.extraRules = [
     {
       users = [settings.primaryUser];
@@ -41,10 +43,6 @@
     });
   '';
 
-  # Wake-on-LAN по умолчанию выключен: пакет-«будильник» не должен
-  # дистанционно включать машину без ведома владельца.
-  # (TLP в конфиге отключён — если включите его позже, проверьте ENABLE_WAKE_ON_AC)
-  powerManagement.powertoolEnable = false;
   # Keyring — хранение паролей (нужен для некоторых приложений)
   # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.greetd.enableGnomeKeyring = true;
