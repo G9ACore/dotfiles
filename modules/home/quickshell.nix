@@ -80,6 +80,11 @@ in {
     recursive = true;
   };
 
+  # Быстрый дебаг: `touch ~/.config/quickshell/.watch` — qs перезагрузит конфиг
+  # без рестарта процесса (см. Quickshell.watcherEnabled). Файл пустой, его
+  # наличие ничего не включает само по себе — это просто метка для watch-режима.
+  xdg.configFile."quickshell/.watch".text = "";
+
   # Запуск панели — через spawn-at-startup в конфиге niri (см.
   # modules/home/config/niri/config.kdl). Systemd-юнит выключен, чтобы
   # не появилось двух панелей одновременно; включите WantedBy, если

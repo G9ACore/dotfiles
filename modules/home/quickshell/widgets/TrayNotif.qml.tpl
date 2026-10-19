@@ -13,9 +13,8 @@ Pill {
         command: ["swaync-client", "-swb"]
         stdout: SplitParser { onReady: line => {
             root.iconCode = line.trim();
-            // сброс флага вне байндига (см. комментарий про Qt.callLater)
-            Qt.callLater(() => probe.running = false);
         }}
+        // running не сбрасываем вручную (байндиг, см. IdleInhibitor.qml).
         onExited: refreshTimer.restart()
     }
 

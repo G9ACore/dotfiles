@@ -19,9 +19,10 @@ Pill {
         `]
         stdout: SplitParser { onReady: line => {
             root.inhibited = line.trim() === "yes";
-            // сброс флага вне байндига (см. комментарий про Qt.callLater)
-            Qt.callLater(() => probe.running = false);
         }}
+        // Process завершается сам (разовая команда); перезапуск — по таймеру.
+        // running НЕ сбрасываем вручную: свойство байндится к true, ручное
+        // присваивание игнорируется/ломает байндиг.
         onExited: refreshTimer.restart()
     }
 
