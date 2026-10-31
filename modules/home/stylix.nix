@@ -7,8 +7,6 @@
     gtk.enable = true;
     qt.enable = true;
 
-    # waybar/swaync удалены (их заменил dms-shell) — эти строки можно
-    # удалить вместе с каталогами config/waybar и config/swaync
     zen-browser.profileNames = ["default"];
   };
 }
