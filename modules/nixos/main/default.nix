@@ -3,6 +3,7 @@
     ./audio.nix
     ./core.nix
     ./fonts.nix
+    ./dms.nix
     ./mtp.nix
     ./network.nix
     ./niri.nix

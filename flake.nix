@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # dms = {
+    #   url = "github:AvengeMedia/DankMaterialShell/stable";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     obsidian-extensions = {
       url = "github:karaolidis/nix-obsidian-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,7 +78,10 @@
       laptop = mkHost {
         hostname = "laptop";
         users = ["dmitry"];
-        extraOverlays = [inputs.obsidian-extensions.overlays.default];
+        extraOverlays = [
+          inputs.obsidian-extensions.overlays.default
+        ];
+
         extraModules = [inputs.nixvim.homeModules.nixvim];
       };
     };
