@@ -50,6 +50,11 @@ in {
       enable = true;
       defaultApplications = {
         "inode/directory" = ["yazi.desktop"];
+        # Явно назначаем Zen браузером по умолчанию для xdg-mime,
+        # чтобы он перестал каждый запуск предлагать «сделать основным»
+        "x-scheme-handler/http" = ["zen_browser.desktop" "firefox.desktop"];
+        "x-scheme-handler/https" = ["zen_browser.desktop" "firefox.desktop"];
+        "text/html" = ["zen_browser.desktop" "firefox.desktop"];
       };
     };
   };
