@@ -4,7 +4,6 @@
     ./git.nix
     ./terminal.nix
     ./browser.nix
-    ./niri.nix
     ./xdg.nix
     ./wayland.nix
     ./yazi.nix
