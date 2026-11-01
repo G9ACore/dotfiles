@@ -98,7 +98,10 @@
     kernelParams = ["quiet" "systemd.show_status=false" "rd.systemd.show_status=false" "rd.udev.log_level=3"];
 
     consoleLogLevel = 3;
-    initrd.verbose = false;
+    initrd = {
+      systemd.enable = true;
+      verbose = false;
+    };
 
     supportedFilesystems = ["ext4" "exfat" "ntfs"];
   };

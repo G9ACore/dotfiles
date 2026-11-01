@@ -20,7 +20,12 @@
     }
   ];
 
-  boot.resumeDevice = "/dev/disk/by-uuid/f3a84407-f306-43f3-a792-189820bb00cf"; # UUID корневого раздела, где лежит swapfile
+  boot = {
+    resumeDevice = "/dev/disk/by-uuid/f3a84407-f306-43f3-a792-189820bb00cf";
+    kernelParams = [
+      "resume_offset=1277952"
+    ];
+  };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.11";
 }
