@@ -14,7 +14,6 @@
     ./neovim.nix
     ./videoplayer.nix
     ./udiskie.nix
-    ./hide-desktop-entries.nix
     ./zoxide.nix
   ];
 }

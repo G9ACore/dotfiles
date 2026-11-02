@@ -30,7 +30,7 @@ in {
       ExtensionSettings = builtins.listToAttrs extensions;
 
       SearchEngines = {
-        Default = "DuckDuckGo";
+        Default = "Google";
         Add = [
           {
             Name = "nixpkgs packages";
